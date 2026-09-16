@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>築壇的人生——亞伯拉罕的祭壇｜帶領講義</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment: #F5EFE1;
+    --parchment-2: #EDE3CC;
+    --stone: #8C8270;
+    --stone-dark: #4A4438;
+    --ink: #2B2A26;
+    --dusk: #2E3B52;
+    --dusk-deep: #1C2536;
+    --clay: #A5482A;
+    --clay-deep: #7C3319;
+    --gold: #B4863B;
+    --line: rgba(74,68,56,0.18);
+    --serif: 'Noto Serif TC', serif;
+    --sans: 'Noto Sans TC', sans-serif;
+  }
+  :root:not([data-theme="light"]){
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --parchment: #211D18;
+      --parchment-2: #2A2419;
+      --ink: #EDE6D6;
+      --stone: #B7AC93;
+      --stone-dark: #D9CFB8;
+      --line: rgba(237,230,214,0.16);
+    }
+  }
+  :root[data-theme="dark"]{
+    --parchment: #211D18;
+    --parchment-2: #2A2419;
+    --ink: #EDE6D6;
+    --stone: #B7AC93;
+    --stone-dark: #D9CFB8;
+    --line: rgba(237,230,214,0.16);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(180,134,59,0.18), transparent 60%),
+      linear-gradient(180deg, var(--dusk-deep), var(--dusk) 65%, var(--parchment) 100%);
+    color:#EDE3CC;
+    padding:96px 28px 140px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0; height:120px;
+    background:linear-gradient(180deg, transparent, var(--parchment));
+  }
+  .hero .eyebrow{
+    font-family:var(--sans);
+    font-size:14px;
+    letter-spacing:0.08em;
+    color:#C9A66B;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(34px,6vw,54px);
+    margin:0 0 20px;
+    line-height:1.3;
+  }
+  .hero p.lede{
+    font-family:var(--serif);
+    font-size:19px;
+    color:#CFC6AE;
+    max-width:520px;
+    margin:0 auto;
+    line-height:1.9;
+  }
+  .hero .refs{
+    margin-top:34px;
+    font-size:14px;
+    color:#9AA6BC;
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:64px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{margin-bottom:34px;}
+  .section-tag{
+    font-family:var(--sans);
+    font-size:13px;
+    color:var(--clay);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h2{
+    font-family:var(--serif);
+    font-size:28px;
+    font-weight:700;
+    margin:0 0 6px;
+    color:var(--stone-dark);
+  }
+  h2 .zh-sub{
+    display:block;
+    font-family:var(--sans);
+    font-size:14px;
+    font-weight:400;
+    color:var(--stone);
+    margin-top:6px;
+  }
+  h3{
+    font-family:var(--serif);
+    font-size:19px;
+    font-weight:600;
+    margin:0 0 10px;
+  }
+  p{margin:0 0 16px; max-width:66ch;}
+  .prayer{
+    font-family:var(--serif);
+    font-style:normal;
+    font-size:17px;
+    line-height:2;
+    color:var(--ink);
+    background:var(--parchment-2);
+    border-left:3px solid var(--gold);
+    padding:24px 28px;
+    margin:18px 0;
+    border-radius:2px;
+  }
+  .prayer p{margin:0 0 14px; max-width:none;}
+  .prayer p:last-child{margin-bottom:0;}
+  .lead-note{
+    font-size:14.5px;
+    color:var(--stone);
+    margin:14px 0 0;
+    padding-left:16px;
+    border-left:2px solid var(--line);
+  }
+  .qlist{margin:0; padding:0; list-style:none;}
+  .qlist li{
+    display:flex;
+    gap:14px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+  }
+  .qlist li:first-child{border-top:none;}
+  .qnum{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:17px;
+    color:var(--clay);
+    min-width:22px;
+  }
+  .qtext{font-size:16px;}
+
+  /* ---------- ALTAR PATH ---------- */
+  .path{position:relative; padding-left:32px;}
+  .path::before{
+    content:"";
+    position:absolute; left:9px; top:6px; bottom:6px;
+    width:2px;
+    background:linear-gradient(180deg, var(--gold), var(--clay) 50%, var(--dusk));
+  }
+  .altar{position:relative; margin-bottom:52px;}
+  .altar:last-child{margin-bottom:0;}
+  .altar::before{
+    content:"";
+    position:absolute; left:-32px; top:4px;
+    width:20px; height:20px;
+    border-radius:50%;
+    background:var(--parchment);
+    border:2px solid var(--clay);
+  }
+  .altar-name{
+    font-family:var(--serif);
+    font-size:22px;
+    font-weight:700;
+    color:var(--stone-dark);
+    margin:0 0 2px;
+  }
+  .altar-verse{
+    font-size:13px;
+    color:var(--stone);
+    margin-bottom:12px;
+  }
+  .altar-theme{
+    display:inline-block;
+    font-size:13px;
+    color:var(--clay-deep);
+    background:rgba(165,72,42,0.1);
+    padding:3px 10px;
+    border-radius:3px;
+    margin-bottom:14px;
+  }
+
+  /* ---------- GOSPEL TURN ---------- */
+  .gospel{
+    background:linear-gradient(160deg, var(--dusk-deep), var(--dusk));
+    color:#EDE3CC;
+    border-radius:6px;
+    padding:40px 34px;
+    margin-top:44px;
+  }
+  .gospel .section-tag{color:#C9A66B;}
+  .gospel h3{color:#F5EFE1; font-size:22px;}
+  .gospel p{color:#D8D0BA; max-width:none;}
+  .gospel .verse-line{
+    font-family:var(--serif);
+    font-size:20px;
+    line-height:1.9;
+    color:#F5EFE1;
+    margin:20px 0;
+    padding:0 0 0 18px;
+    border-left:2px solid var(--gold);
+  }
+
+  /* ---------- ENGAGE / HOOK BOXES ---------- */
+  .cardgrid{display:grid; gap:14px;}
+  .qcard{
+    background:var(--parchment-2);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:18px 20px;
+    font-size:15.5px;
+  }
+
+  footer{
+    padding:56px 28px 80px;
+    text-align:center;
+  }
+  footer .amen{
+    font-family:var(--serif);
+    font-size:20px;
+    color:var(--stone-dark);
+    margin-bottom:28px;
+  }
+  table.sched{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+    max-width:520px;
+    margin:0 auto;
+    text-align:left;
+  }
+  table.sched th, table.sched td{
+    padding:10px 12px;
+    border-bottom:1px solid var(--line);
+    color:var(--stone-dark);
+  }
+  table.sched th{
+    font-weight:600;
+    color:var(--stone);
+    font-size:13px;
+  }
+  .colophon{
+    margin-top:40px;
+    font-size:12.5px;
+    color:var(--stone);
+  }
+
+  @media (max-width:560px){
+    .hero{padding:72px 20px 110px;}
+    section{padding:48px 0;}
+    .prayer{padding:20px;}
+    .gospel{padding:28px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">H.E.A.R.T. 帶領講義</div>
+    <h1>築壇的人生<br>亞伯拉罕的祭壇</h1>
+    <p class="lede">一個與神對齊、轉化更新的人生——從示劍的回應，到伯特利的回轉，再到摩利亞的降服。</p>
+    <div class="refs">創世記 12:1-9 · 12:8；13:1-4 · 22章</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <div class="section-head">
+      <div class="section-tag">支柱一 · 開場</div>
+      <h2>敬拜穿插禱告詞<span class="zh-sub">Worship &amp; Opening Prayer</span></h2>
+    </div>
+    <p>弟兄姊妹平安。過去一週，我們可能被工作、家庭、各樣忙碌拉扯著心；今天，我們把心重新帶回神的面前。</p>
+    <p>接下來我們要唱《恩典已降臨》與《我需要有你在我生命中》——兩首詩歌都在說一件事：不是我們主動尋找神，而是神先來尋找、介入我們的生命。這正呼應今天要看的人物——亞伯拉罕。他不是生在敬虔的家庭裡，是神主動向他顯現，呼召他離開本地、本族、父家。他一生築了三座壇，我們也要問自己：我生命中的「壇」在哪裡？</p>
+    <div class="prayer">
+      <p>親愛的天父，感謝你從創世以來就主動尋找我們、呼召我們。求你今天興起我們的渴慕，讓敬拜不只是唱一首歌，而是我們心門再次向你敞開。</p>
+      <p>求聖靈在接下來的時間裡光照我們，使我們像亞伯拉罕一樣，願意回應你的呼召，也願意誠實面對自己生命中還沒有築壇、或已經荒廢的地方。奉主耶穌的名禱告，阿們。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="section-tag">Hook</div>
+      <h2>情境破冰<span class="zh-sub">建立相關性——先觸碰痛點，不急著解經</span></h2>
+    </div>
+    <p class="lead-note">任選一到兩題，讓組員先分享即可，不必三題全問。</p>
+    <div class="cardgrid" style="margin-top:20px;">
+      <div class="qcard">如果今天你清楚「聽見」一個聲音對你說：「離開你熟悉的一切，往一個我還沒告訴你的地方去」——你會有什麼反應？猶豫、抗拒，還是立刻收拾行李？</div>
+      <div class="qcard">你有沒有經歷過某個「轉折的地方」——一個決定、一次禱告、一個時刻，讓你之後的人生從此不一樣？那個地方對你來說是什麼？</div>
+      <div class="qcard">假設你正在整理一個花了很多年才得到的東西——一段感情、一個成就、一筆積蓄——突然有個聲音要你完全交出去，甚至失去它，你心裡的第一反應會是什麼？</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="section-tag">Scripture + Engagement</div>
+      <h2>讀經與感受層互動<span class="zh-sub">層層剝筍 · 第一層——體驗與感受</span></h2>
+    </div>
+    <h3>讀經環節</h3>
+    <p>建議輪讀或齊讀，配合輕柔背景音樂，分段讀完創世記 12:1-9（示劍）→ 13:1-4（伯特利）→ 22:1-14（摩利亞），每段之間稍作靜默。</p>
+    <div class="prayer" style="border-left-color:var(--stone);">
+      <p>接下來我們要讀三段經文，是亞伯拉罕一生中築的三座壇。讀的時候，請試著把自己放進這個故事裡——不急著分析，先讓經文的畫面進到你心裡。</p>
+    </div>
+    <h3 style="margin-top:30px;">感受層提問</h3>
+    <ul class="qlist">
+      <li><span class="qnum">01</span><span class="qtext">讀完這段，哪一個詞、哪一個畫面最觸動你？</span></li>
+      <li><span class="qnum">02</span><span class="qtext">如果你是亞伯拉罕（或撒拉、或以撒），走在那段路上，你當時心裡會是什麼真實的感受？</span></li>
+      <li><span class="qnum">03</span><span class="qtext">當亞伯拉罕舉起刀的那一刻，你覺得他心裡在想什麼？如果是你，你撐得住嗎？</span></li>
+    </ul>
+    <p class="lead-note">充分接納所有回應——包括「我覺得神很殘忍」「我不懂為什麼他能這麼順服」這類真實甚至帶著疑惑的表達。不急著糾正，先讓組員被聽見。</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="section-tag">Insight</div>
+      <h2>水深之處<span class="zh-sub">層層剝筍 · 第二／三層——解經與福音轉折</span></h2>
+    </div>
+
+    <h3>歷史與文脈——神主動尋找的恩典</h3>
+    <p>約書亞記 24 章告訴我們，亞伯拉罕的父親他拉是拜偶像的人，他成長的吾珥城也拜月神——他不是從小在信仰家庭長大的孩子。是神主動向他顯現，呼召他離開本地、本族、父家（創 12:1）。這正是福音的本質：不是我們去找神，而是神先來找我們（約一 4:19）。</p>
+    <p>「壇」的希伯來字根意為「宰殺」，是流血、獻祭之地，代表四件事：向神宣告主權、留給世代的記號、付上代價的奉獻、立約的標記。石頭築的壇不會輕易消失——後來雅各夢見天梯，想起祖父亞伯拉罕曾在伯特利築壇，便回去築了自己的壇（創 35 章）。壇，是可以傳承的。</p>
+
+    <div class="path" style="margin-top:40px;">
+      <div class="altar">
+        <div class="altar-verse">創世記 12:1-9</div>
+        <div class="altar-name">示劍——回應神的壇</div>
+        <div class="altar-theme">回應 Respond</div>
+        <p>神的命令異常困難：離開本地、離開本族、離開父家，往一個神沒有先告訴他的地方去。亞伯拉罕沒有猶豫，「照著耶和華的吩咐去了」，在示劍築壇回應。壇，是人對神顯現的回應——神先顯現，我們才築壇。</p>
+      </div>
+      <div class="altar">
+        <div class="altar-verse">創世記 12:8；13:1-4</div>
+        <div class="altar-name">伯特利——回轉歸神的壇</div>
+        <div class="altar-theme">回轉 Return</div>
+        <p>築壇之後，遇饑荒他便下了埃及，撒拉幾乎被留在法老宮中——連信心之父也會跌倒。聖經從不假裝屬靈偉人不會跌倒，它要告訴我們的是：跌倒以後，知道回轉。出埃及後他做的第一件事，就是回到伯特利「重新點火」，回到起先築壇的地方求告耶和華的名。這正呼應啟示錄 2 章主耶穌對以弗所教會的責備——離棄了起初的愛心，呼召他們「回想、悔改、行起初所行的事」。</p>
+      </div>
+      <div class="altar">
+        <div class="altar-verse">創世記 22章</div>
+        <div class="altar-name">摩利亞——完全降服的壇</div>
+        <div class="altar-theme">降服 Surrender</div>
+        <p>以撒是亞伯拉罕等了二十五年才得的應許之子，名字意思是「喜笑」——是他一切盼望的延續。神卻要他將這愛子獻為燔祭：「你的兒子——就是你獨生的兒子——你所愛的以撒」，一刀一刀刺入他心底。他帶以撒走了三天路程，對僕人說：「我與童子往那裡去拜一拜，就回到你們這裡來」——他相信神連死裡復活都能成就（來 11:19）。以撒問：「燔祭的羊羔在哪裡？」他答：「神必自己預備。」舉刀那刻，神親自預備公羊代替，那地被稱為「耶和華以勒」——耶和華必預備。</p>
+      </div>
+    </div>
+
+    <div class="gospel">
+      <div class="section-tag">福音轉折</div>
+      <h3>各各他山上，天父真的獻上了祂的兒子</h3>
+      <p>摩利亞山後來成為耶路撒冷聖殿所在，各各他山就在城外不遠。兩千年後，同樣一座山上，有一位父親帶著祂的兒子走上山路，但這一次沒有公羊代替，因為這祭是為我們眾人獻的（羅 8:32）。</p>
+      <div class="verse-line">亞伯拉罕「願意」獻以撒卻沒有獻成；<br>天父卻「真的」獻上了祂的獨生兒子——這就是福音。</div>
+      <p>舉刀的那一刻，亞伯拉罕並未失去以撒；抱他回家時，他比以前更愛以撒，也更認識神。真正交給神的，神必以更好的方式還給我們。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="section-tag">Application</div>
+      <h2>生活落地討論問題</h2>
+    </div>
+    <ul class="qlist">
+      <li><span class="qnum">察驗</span><span class="qtext">你的「示劍」在哪裡？神何時向你顯現過？你有沒有為那一刻築壇——用具體的方式回應過神？</span></li>
+      <li><span class="qnum">放手</span><span class="qtext">你需要「回到伯特利」嗎？在目前的生活中，哪一部分偏離了起初與主的關係？你的禱告是否已經變成習慣，而不是渴慕？</span></li>
+      <li><span class="qnum">行動</span><span class="qtext">你的「以撒」是什麼？那個你最愛、最不願放手交給神的是什麼？本週你可以為這件事做出哪一個具體、微小的回應？</span></li>
+    </ul>
+    <p class="lead-note">依組員狀態選擇一到兩題深入即可。若有人分享較深的掙扎，不急著給答案，先陪伴、傾聽，並把這份重擔帶到結束代禱中。</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="section-tag">支柱二 · 結束</div>
+      <h2>結束代禱詞</h2>
+    </div>
+    <h3 style="color:var(--clay-deep);">感恩與讚美</h3>
+    <div class="prayer">
+      <p>天父，我們今天再一次看見你是「耶和華以勒」——那位必要親自預備的神。不管我們今天正站在哪一座壇上——示劍的起頭、伯特利的回轉，或摩利亞的降服——你從來沒有放棄過亞伯拉罕，也從來沒有放棄過我們。感謝你不是要我們的以撒，而是你自己獻上了你的獨生愛子，為我們預備了救恩。</p>
+    </div>
+    <h3 style="color:var(--clay-deep);">悔改與回應</h3>
+    <div class="prayer">
+      <p>主啊，求你光照我們今天心裡浮現的那個「以撒」——那個我們最不願意放手的人、事、物或關係。求你幫助我們，不是勉強交出，而是像亞伯拉罕一樣，相信你必親自預備、必以更好的方式還給我們。如果我們當中有人正偏離了起初與你的關係，求你今天就帶我們「回到伯特利」，重新點燃起初的愛。</p>
+    </div>
+    <h3 style="color:var(--clay-deep);">教會／團隊代禱</h3>
+    <div class="prayer">
+      <p>求主為我們教會今年度的主題「與神對齊，轉化更新」動工，使我們真知道你、明白你的旨意，與你的心意和話語對齊，帶下翻轉、改變與更新。求你紀念教會的牧長團隊，賜他們智慧與力量，也保守他們的家庭。也求你紀念小組中每一位弟兄姊妹的生命、靈命、健康、婚姻家庭與財務上的需要，親自介入、親自預備。奉主耶穌基督的名禱告，阿們。</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="amen">願我們都成為一群築壇的人。</div>
+  <table class="sched">
+    <thead><tr><th>環節</th><th>對應聚會流程</th><th>建議時間</th></tr></thead>
+    <tbody>
+      <tr><td>敬拜穿插禱告</td><td>Worship 敬拜 &amp; 禱告服事</td><td>15 分</td></tr>
+      <tr><td>情境破冰</td><td>Welcome 歡迎</td><td>10 分</td></tr>
+      <tr><td>讀經與感受層</td><td>Word 神的話（前段）</td><td>10–15 分</td></tr>
+      <tr><td>水深之處</td><td>Word 神的話（中段）</td><td>15–20 分</td></tr>
+      <tr><td>生活落地討論</td><td>討論問題與生活應用</td><td>10–15 分</td></tr>
+      <tr><td>結束代禱</td><td>Work 服事人</td><td>15 分</td></tr>
+    </tbody>
+  </table>
+  <div class="colophon">築壇的人生 · H.E.A.R.T. 帶領講義 · 基督敬拜中心小組聚會</div>
+</footer>
+
+</body>
+</html>
