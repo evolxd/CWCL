@@ -1,0 +1,64 @@
+# 放在仓库的 .github/workflows/voiceover.yml
+# 用法：GitHub → Actions → "Gemini 讲义配音" → Run workflow（手机网页也可以按）
+name: Gemini 讲义配音
+
+on:
+  workflow_dispatch:
+    inputs:
+      html:
+        description: "讲义 HTML 的路径（相对仓库根目录）"
+        required: true
+        default: "lessons/eph2-reconciliation-heart.html"
+      only:
+        description: "只重做某几段（例如 8,11），留空＝全部"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  voiceover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装依赖
+        run: pip install requests lameenc
+
+      - name: 恢复配音缓存
+        uses: actions/cache@v4
+        with:
+          path: tts_cache
+          key: tts-${{ hashFiles(inputs.html) }}-${{ github.run_id }}
+          restore-keys: tts-${{ hashFiles(inputs.html) }}-
+
+      - name: 生成配音
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          ARGS="--mp3"
+          if [ -n "${{ inputs.only }}" ]; then ARGS="$ARGS --only ${{ inputs.only }}"; fi
+          python tools/gemini_voiceover.py "${{ inputs.html }}" $ARGS
+
+      - name: 提交成品回仓库
+        run: |
+          git config user.name "voiceover-bot"
+          git config user.email "voiceover-bot@users.noreply.github.com"
+          BASE="${{ inputs.html }}"; BASE="${BASE%.html}"
+          git add "${BASE}-voiced.html" "${BASE}-full.mp3"
+          git commit -m "配音：$(basename "$BASE")" || echo "没有变更"
+          git push
+
+      - name: 也提供下载
+        uses: actions/upload-artifact@v4
+        with:
+          name: voiced-lesson
+          path: |
+            lessons/*-voiced.html
+            lessons/*-full.mp3
