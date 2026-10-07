@@ -1,4 +1,4 @@
-<title>人生的终极价值</title>
+<title>人生的终极价值 学员版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;700&display=swap">
@@ -135,29 +135,40 @@ tr:last-child td { border-bottom: 0; }
 
 footer { margin-top: 48px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-</style>
 
+/* learner handout */
+.q { margin: 0; padding: 0; list-style: none; counter-reset: q; display: flex; flex-direction: column; gap: 14px; }
+.q > li { counter-increment: q; display: grid; grid-template-columns: 1.8em 1fr; gap: 6px; min-width: 0; }
+.q > li::before { content: counter(q) "."; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+.q > li > div { min-width: 0; }
+.note { width: 100%; margin-top: 8px; min-height: 4.5em; resize: vertical; font: inherit; font-size: 15px; line-height: 1.7; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; }
+.note::placeholder { color: var(--muted); }
+.fact { background: var(--gold-soft); border-radius: 6px; padding: 12px 16px; font-size: 15px; }
+.fact b { color: var(--gold); letter-spacing: .08em; font-size: 12.5px; display: block; }
+.deep { border-left: 3px solid var(--gold); padding-left: 14px; margin-top: 4px; font-size: 15px; color: var(--muted); }
+.dig { margin-top: 12px; font-size: 15px; }
+.dig b { color: var(--gold); }
+
+</style>
 <div class="wrap" id="top">
-  <nav class="nav" aria-label="教案流程">
+  <nav class="nav" aria-label="学习流程">
     <a href="#worship">开场</a>
     <a href="#hook">H 破冰</a>
     <a href="#engage">E 读经</a>
     <a href="#reflect">R 水深</a>
-    <a href="#guard">边界</a>
     <a href="#apply">A 落地</a>
-    <a href="#close">T 代祷</a>
-    <a href="#toolbox">时间表</a>
+    <a href="#close">T 祷告</a>
   </nav>
 
   <header class="hero">
     <div class="hero-text">
-      <div class="eyebrow">马可福音 10:17–27 · 小组带领教案</div>
+      <div class="eyebrow">马可福音 10:17–27 · 小组学员手册</div>
       <h1>人生的终极价值</h1>
-      <p class="decree">永生不是赚来的成绩，是神白白给的拯救。你抓得最紧的那一样，正是你最需要被拯救的地方。</p>
+      <p class="decree">一个人把规矩守了一辈子，为什么还要跑来问：「我还缺什么？」</p>
       <div class="meta">
         <span class="chip">主日信息 2026-09-27</span>
         <span class="chip">H.E.A.R.T. 流程</span>
-        <span class="chip">建议 90 分钟</span>
+        <span class="chip">约 90 分钟</span>
       </div>
     </div>
     <svg class="needle" viewBox="0 0 60 230" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -167,43 +178,35 @@ footer { margin-top: 48px; font-size: 13px; color: var(--muted); border-top: 1px
     </svg>
   </header>
 
-  <!-- 支柱一 -->
   <section id="worship">
-    <div class="sec-head"><span class="letter">开场</span><h2>支柱一：敬拜与开场祷告</h2><span class="mins">10 分钟</span></div>
+    <div class="sec-head"><span class="letter">开场</span><h2>会前祷告与敬拜</h2><span class="mins">10 分钟</span></div>
     <div class="stack">
       <div class="card">
         <h3>敬拜诗歌</h3>
-        <ol class="qs">
-          <li>《永恒唯一的盼望》</li>
-          <li>《我心属于祢》</li>
-        </ol>
-        <p style="margin-top:12px">唱第一首前可以这样带：</p>
-        <p class="verse">「今晚我们不用先把自己整理好。唱这两首歌的时候，请在心里问自己：我真正的盼望放在哪里？我的心，现在属于谁？也留意有哪一样东西，是我握着不放的。」</p>
+        <ol class="qs"><li>《永恒唯一的盼望》</li><li>《我心属于祢》</li></ol>
+        <p style="margin-top:12px">唱的时候，在心里问自己：我真正的盼望放在哪里？我的心，现在属于谁？</p>
       </div>
       <div class="prayer">
-        <h3>开场祷告（可直接带领）</h3>
-        <p>天父，我们来到祢面前，不是带着成绩单，而是带着真实的自己。求圣灵光照，让我们看见心里握得最紧的东西，也看见耶稣看着我们时的眼神。求祢开启我们的心，不急着辩护，也不急着逃走，诚实地听，诚实地说。奉耶稣的名祷告，阿们。</p>
+        <h3>开场祷告</h3>
+        <p>天父，我们来到祢面前，不是带着成绩单，而是带着真实的自己。求圣灵光照，让我们看见心里握得最紧的东西，也看见耶稣看着我们时的眼神。求祢开启我们的心，诚实地听，诚实地说。奉耶稣的名祷告，阿们。</p>
       </div>
     </div>
   </section>
 
-  <!-- H -->
   <section id="hook">
-    <div class="sec-head"><span class="letter">H</span><h2>Hook・情境破冰</h2><span class="mins">10 分钟</span></div>
+    <div class="sec-head"><span class="letter">H</span><h2>Hook・破冰</h2><span class="mins">10 分钟</span></div>
     <div class="card">
-      <p>先不解经。让每个人从自己的生活出发，三题任选两题，每人限一分钟。</p>
-      <ol class="qs">
-        <li>你心里有没有一条「做到这样我就安心了」的线？它在工作、家庭，还是属灵表现上？</li>
-        <li>有没有一次，你该做的都做了，心里还是觉得空？</li>
-        <li>假设只能确认一件事，才能安心面对人生的终点，你最想确认的是什么？</li>
+      <p>不用翻经文，从自己的生活回答。每人一分钟，三题任选两题。</p>
+      <ol class="q" style="margin-top:12px">
+        <li><div>你心里有没有一条「做到这样我就安心了」的线？它在工作、家庭，还是属灵表现上？</div></li>
+        <li><div>有没有一次，你该做的都做了，心里还是觉得空？</div></li>
+        <li><div>假设只能确认一件事，才能安心面对人生的终点，你最想确认的是什么？（不想答可以跳过）</div></li>
       </ol>
     </div>
-    <div class="tip" style="margin-top:12px"><b class="lbl">带领者提示</b>第三题可能触碰到丧亲或疾病的经历。把它当作假设题，任何人想跳过都可以，不追问。</div>
   </section>
 
-  <!-- E -->
   <section id="engage">
-    <div class="sec-head"><span class="letter">E</span><h2>Scripture & Engagement・读经与感受</h2><span class="mins">15 分钟</span></div>
+    <div class="sec-head"><span class="letter">E</span><h2>Engagement・读经与观察</h2><span class="mins">15 分钟</span></div>
     <div class="scripture">
       <div class="part">
         <div class="who">第一段・提问与诫命（组员甲）</div>
@@ -218,213 +221,134 @@ footer { margin-top: 48px; font-size: 13px; color: var(--muted); border-top: 1px
         <p class="v"><sup>23</sup>耶稣周围一看，对门徒说：「有钱财的人进神的国是何等的难哪！」<sup>24</sup>门徒希奇他的话。耶稣又对他们说：「小子，倚靠钱财的人进神的国是何等的难哪！<sup>25</sup>骆驼穿过针的眼，比财主进神的国还容易呢。」<sup>26</sup>门徒就分外希奇，对他说：「这样谁能得救呢？」<sup>27</sup>耶稣看着他们，说：「在人是不能，在神却不然，因为神凡事都能。」</p>
       </div>
     </div>
-    <div class="tip" style="margin:12px 0 14px"><b class="lbl">带领者提示</b>先请大家一起朗读上面的经文，再看下面的问题。可以把这段经文投影出来，或请组员打开这一页。</div>
-    <div class="stack">
+    <p style="margin:14px 0 4px">三人轮读，读完安静 30 秒，默默圈出「让我停下来的一句话」。</p>
+
+    <div class="stack" style="margin-top:12px">
       <div class="card">
-        <h3>朗读安排（经文在上方）</h3>
-        <ul class="plain">
-          <li><b>第一轮：</b>三人轮读。17–20 节（提问与诫命）、21–22 节（耶稣的回应与离去）、23–27 节（针眼与门徒的惊讶）。</li>
-          <li><b>静默：</b>读完后安静约 30 秒，请大家默默圈出「让我停下来的一句话」。</li>
-          <li><b>第二轮：</b>请一位组员齐读 21 节，其余人跟着默读。</li>
-        </ul>
+        <h3>观察：经文里写了什么</h3>
+        <ol class="q">
+          <li><div>这段经文里有哪些人物？各自说了什么、做了什么？<textarea class="note" id="n-e1" placeholder="写下你的观察"></textarea></div></li>
+          <li><div>他的问题（17 节）用的动词是什么？耶稣的回答（21 节）用了哪几个动词？</div></li>
+          <li><div>把 19 节耶稣说出的诫命一条条数一下。你觉得十诫里少了哪几条？</div></li>
+          <li><div>22 节经文怎么描写他离开时的样子？</div></li>
+          <li><div>门徒的反应从「希奇」（24 节）变成「分外希奇」（26 节）。他们心里的问题是什么？</div></li>
+        </ol>
       </div>
       <div class="card">
-        <h3>感受层提问（先接纳，不纠正）</h3>
-        <ol class="qs">
-          <li>这个人身上，有哪些地方是你羡慕、甚至佩服的？</li>
-          <li>读到「脸上变了色，忧忧愁愁地走了」，你心里的第一个反应是什么？同情、不服气，还是有点害怕？</li>
-          <li>「耶稣看着他，就爱他」这句，放在「你还缺一件」之前，你读起来是什么感觉？</li>
+        <h3>解释：你的初步想法</h3>
+        <ol class="q">
+          <li><div>他问「我当做什么」，耶稣先问的却是「你为什么称我是良善的」。你觉得为什么？<textarea class="note" id="n-e2" placeholder="先写下你的想法，不用怕错"></textarea></div></li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>感受：说出来就好，不用对错</h3>
+        <ol class="q">
+          <li><div>这个人身上，有哪些地方是你羡慕、甚至佩服的？</div></li>
+          <li><div>读到「脸上变了色，忧忧愁愁地走了」，你心里的第一个反应是什么？同情、不服气，还是有点害怕？</div></li>
+          <li><div>「耶稣看着他，就爱他」这句，放在「你还缺一件」之前，你读起来是什么感觉？<textarea class="note" id="n-e3" placeholder="你的感受"></textarea></div></li>
         </ol>
       </div>
     </div>
-    <div class="tip" style="margin-top:12px"><b class="lbl">带领者提示</b>有人说「这太苛刻了」「我也会走」，都是诚实的反应。先说「谢谢你这么坦白」，把它留到 R 环节处理，不在这里急着给答案。</div>
   </section>
 
-  <!-- R -->
   <section id="reflect">
-    <div class="sec-head"><span class="letter">R</span><h2>Reflection & Insight・水深之处</h2><span class="mins">25 分钟</span></div>
-
-    <div class="card">
-      <h3>历史文脉与解经</h3>
-      <dl class="facts">
-        <dt>上文对照</dt><dd>10:13–16 耶稣刚祝福小孩子：「凡要承受神国的，若不像小孩子，断不能进去。」孩子伸手领受，这个人握拳计算。两段要连着读。</dd>
-        <dt>「良善」</dt><dd>耶稣不是否认自己良善，而是请他想一想：称我「良善」，你知道自己在说什么吗？除了神，没有人是良善的。</dd>
-        <dt>诫命清单</dt><dd>耶稣只列出对人的诫命，并且把「不可贪心」换成马可独有的「不可亏负人」。不少解经家指出，这是在轻轻点到他的软肋。</dd>
-        <dt>看着他，就爱他</dt><dd>这句也是马可独有。要求是在爱里面提出的，不是羞辱。耶稣没有追上去讨价还价，也没有降低标准。</dd>
-        <dt>财富与蒙福</dt><dd>当时普遍把财富看为蒙福的记号（参申命记 28 章）。难怪门徒「分外希奇」：最蒙福的人都进不去，谁能得救？</dd>
-        <dt>针眼</dt><dd>这是夸张的修辞，意思是「不可能」。流传的「针门」说法缺乏历史根据，带领时不必采用。</dd>
-        <dt>对照经文</dt><dd>「变卖一切」是针对这个人的诊断，不是对所有人的救恩条件。撒该只分出一半（路 19:8），保罗也劝勉有钱的人要乐意分享（提前 6:17–19）。</dd>
-      </dl>
-    </div>
-
-    <div class="card" style="margin-top:12px">
-      <h3>对照本周主日信息</h3>
-      <p>主日信息的轴线是：这人的焦点在「我当做什么」→ 耶稣挑战他的行为底线 → 「财主」指的是人所依靠的一切（钱财、知识、权力、地位、美貌、善行）→ 「在人是不能，在神却不然」。小组讨论可以沿着这条线，不重复讲道内容。</p>
-    </div>
-
-    <div class="debate" style="margin-top:16px">
-      <h3>水深之处・大师思想交锋</h3>
-      <p class="subtitle">面对「人生的终极价值」，千年来最顶尖的头脑在争论什么？</p>
-
-      <div class="qblock">
-        <span class="qlabel">质问一・辨识与防盲信</span>
-        <p class="qmain">耶稣这句「变卖一切」，是神的声音，还是把人逼到绝路的极端要求？今天心里「该放下」的催促，凭什么确定是神，而不是愧疚、操控或别人的压力？</p>
-        <div class="debate-cards">
-          <div class="card">
-            <span class="tag">路易斯・心境与信念</span>
-            <h4>你「感觉到」的，是证据，还是只是今天的心情？</h4>
-            <p>心情每天都在变，不能当标准。先问「这是真的吗」，再问「我感觉如何」；拿已经确认的事实（整本圣经、神已显明的性情、已知的是非）去检验当下的催促，而不是被一时的羞愧或兴奋带着走。</p>
-            <p class="apply">对照本段：面对「变卖一切」，先回到已知的事实——耶稣爱他、邀请他，撒该只分出一半——再决定这个催促从哪里来。</p>
-          </div>
-        </div>
-        <div class="method"><b>辨析法（三道察验）：</b>① 圣经全貌：与整体启示一致，不靠单一节经文。② 圣灵的果子与平安：爱、喜乐、和平、节制，而不是恐慌与控制。③ 属灵共同体：说出来，让成熟的人一起看，不独自决定、不被他人逼迫。对照本段：耶稣的要求裹在爱里（「看着他，就爱他」），目的是邀请（「来跟从我」），没有羞辱，也没有逼迫。</div>
+    <div class="sec-head"><span class="letter">R</span><h2>Reflection・水深之处</h2><span class="mins">25 分钟</span></div>
+    <div class="stack">
+      <div class="card">
+        <h3>先看两个背景</h3>
+        <div class="fact"><b>背景一</b>耶稣时代的犹太人，普遍把财富看为神祝福的记号。</div>
+        <p style="margin-top:10px"><b>想一想：</b>知道这一点，门徒为什么「分外希奇」？他们心里原来以为谁最容易进神的国？</p>
+        <div class="fact" style="margin-top:14px"><b>背景二</b>就在这段经文的前面（10:13–16），耶稣刚祝福了一群小孩子，说：「凡要承受神国的，若不像小孩子，断不能进去。」</div>
+        <p style="margin-top:10px"><b>想一想：</b>把小孩子和这个富有的人放在一起读，你看见什么对比？</p>
+        <textarea class="note" id="n-r1" placeholder="你的发现"></textarea>
       </div>
 
-      <div class="qblock">
-        <span class="qlabel">质问二・本质与去解构</span>
-        <p class="qmain">剥掉「捐钱」的外衣，耶稣到底在向他要什么？他一辈子守的诫命，为什么偏偏没有帮到他？</p>
-        <div class="debate-cards">
-          <div class="card">
-            <span class="tag">奥古斯丁・秩序之爱</span>
-            <h4>你紧握的那一样，是不是已经坐在神的位置上？</h4>
-            <p>罪不只是做错事，而是爱的次序错了。把次要的东西放在首位，它就承受不了那份重量，最后反过来奴役你。焦虑的强度，显示一样东西在你心里占了多重的位置。</p>
-            <p class="apply">对照本段：「你还缺一件」缺的不是一个善行，而是把神放在第一位。</p>
-          </div>
-          <div class="card">
-            <span class="tag">凯勒・破除偶像</span>
-            <h4>你的好行为，是在爱神，还是在替自己买保险？</h4>
-            <p>同一个善行，可能是感恩，也可能是交易。用一个问题审查动机：如果神不给我任何回报，我还会做吗？好东西一旦变成终极的东西，就成了偶像。</p>
-            <p class="apply">对照本段：「我当做什么才可以承受永生？」是一个交易的问法。</p>
-          </div>
-        </div>
-        <div class="method"><b>直击的核心：</b>耶稣要的不是财产，是控制权。这位官员的诫命守得无可指责，却从来没有真正把手松开过。</div>
+      <div class="card">
+        <h3>三个要诚实面对的问题</h3>
+        <p class="deep">这三个问题没有标准答案可背，请用自己的生命和经文回答。</p>
+        <ol class="q" style="margin-top:14px">
+          <li><div><b>辨识：</b>耶稣的话听起来很重。当你心里出现「该放下什么」的催促，你怎么分辨它是从神来的，还是出于愧疚、别人的压力或自己的私欲？你的经验里有什么线索？<textarea class="note" id="n-r2" placeholder="你的线索"></textarea></div></li>
+          <li><div><b>本质：</b>如果「变卖一切」不只是关于钱，耶稣真正在向他要什么？你生命里有没有一样东西，是你说「别的都可以，这个不行」的？<textarea class="note" id="n-r3" placeholder="诚实写，只有你自己看"></textarea></div></li>
+          <li><div><b>现实：</b>在没有异象、没有声音的普通一天，你要怎么具体地「放手」？写下你能想到的一两个做法。<textarea class="note" id="n-r4" placeholder="具体的做法"></textarea></div></li>
+        </ol>
       </div>
 
-      <div class="qblock">
-        <span class="qlabel">质问三・现实无神感</span>
-        <p class="qmain">在看不见神、听不到声音的平凡周二，我们到底要怎么「放手」？不能只停在「要更信靠」。</p>
-        <div class="debate-cards">
-          <div class="card">
-            <span class="tag">加尔文・恩典管道</span>
-            <h4>你是在等异象，还是在使用神给的平凡管道？</h4>
-            <p>神多半透过平凡的途径做工：读经、祷告、圣餐、团契、日常的职分与邻舍。把「可以重复的小动作」当作恩典的管道，比等待一次戏剧性的经历可靠。</p>
-            <p class="apply">对照本段：耶稣给的是一个具体的下一步，并且说「来跟从我」。</p>
-          </div>
-          <div class="card">
-            <span class="tag">路易斯・日常选择</span>
-            <h4>你每一次放手或抓紧，在把你变成什么样的人？</h4>
-            <p>每一个选择，都在一点一点改变那个做选择的「中心的我」。人不是靠一次大决心变好，而是靠每天可以重复的小选择，慢慢长成一个更像神、或更不像神的人。</p>
-            <p class="apply">对照本段：不用一次变卖一切，先把「放手」切成这周做得到的小动作，下一节 A 环节会落地。</p>
-          </div>
-        </div>
-        <div class="method"><b>现实路径：</b>管家（把「我的」改成「托管的」）、邻舍（爱要流向看得见的人）、祷告（在日常里卸下焦虑）。具体做法见 A 环节。</div>
+      <div class="card">
+        <h3>回到 27 节</h3>
+        <ol class="q">
+          <li><div>「在人是不能，在神却不然，因为神凡事都能。」在得永生这件事上，经文说谁做不到？谁能做到？</div></li>
+          <li><div>耶稣要他放下一切。想一想耶稣自己后来对生命和财物做了什么（可 10:32–34；林后 8:9），这会改变你听「你还缺一件」的方式吗？<textarea class="note" id="n-r5" placeholder="你的想法"></textarea></div></li>
+        </ol>
       </div>
-    </div>
 
-    <div class="card" style="margin-top:16px; border-color: var(--gold)">
-      <h3>福音转折点：做不到的，神已经做成了</h3>
-      <p>「在人是不能，在神却不然，因为神凡事都能。」（可 10:27）这位官员问「我当做什么」，耶稣的答案是：你做不到，但有一位做到了。</p>
-      <p>耶稣要他放下一切，正是耶稣自己即将做的事：祂本来富足，却为我们成了贫穷（林后 8:9），降卑成为人，顺服至死，甚至死在十字架上（腓 2:6–8）。就在这段经文之后，祂第三次预告要上耶路撒冷受死（可 10:32–34）。</p>
-      <p>祂是唯一真正良善的那一位，完全守住了诫命，并且把我们的罪担在身上。得永生靠的不是我们把拳头松开的力气，而是祂钉痕的手先抓住了我们。</p>
-      <ol class="qs"><li>耶稣要他做的，正是祂自己要做的。这会改变你听「你还缺一件」的方式吗？</li></ol>
+      <div class="card">
+        <h3>常见的误读，你怎么看？</h3>
+        <ol class="q">
+          <li><div>有人听了这段会得出「只有变卖一切才能得救」，也有人会觉得「这和我无关」。你觉得这两种读法，各自漏掉了什么？</div></li>
+        </ol>
+      </div>
     </div>
   </section>
 
-  <!-- 边界 -->
-  <section id="guard">
-    <div class="sec-head"><span class="letter">边界</span><h2>防迷途与安全边界</h2><span class="mins">5 分钟</span></div>
-    <div class="bounds">
-      <div class="card">
-        <div class="side">左边界・防止冷漠与不顺服</div>
-        <ul class="plain">
-          <li>「我已经够好了，这段与我无关。」</li>
-          <li>把耶稣的话当作夸张的比喻，轻轻放过。</li>
-          <li>用「神凡事都能」当借口，什么也不回应。</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="side">右边界・防止盲信与灵性滥用</div>
-        <ul class="plain">
-          <li>把「变卖一切」变成新的救恩条件，这只是换了一种靠行为得救。</li>
-          <li>把贫穷当作属灵，或把富有当作罪；圣经两者都没有这样说。</li>
-          <li>任何人以这段经文逼迫奉献、比较奉献，或要求交出财务决定权。</li>
-          <li>把模糊的罪疚感，当作神的声音。</li>
-        </ul>
-      </div>
-    </div>
-    <div class="warn" style="margin-top:12px"><b class="lbl">分辨责备与定罪</b>圣灵的责备具体、带向耶稣，并且带着盼望；定罪模糊、让人躲藏，并且只剩羞愧（罗 8:1）。如果组员的反应是后者，请带领大家回到「耶稣看着他，就爱他」。</div>
-    <div class="tip" style="margin-top:12px"><b class="lbl">带领者提示</b>组内可能有人正面对失业、负债或照顾开支的压力，「富人」这个词可能让他们感到被指责，或觉得自己什么也没得放。说明一次：这里的「财主」是指人所依靠的一切，不是比较谁有钱。</div>
-  </section>
-
-  <!-- A -->
   <section id="apply">
-    <div class="sec-head"><span class="letter">A</span><h2>Application・生活落地矩阵</h2><span class="mins">15 分钟</span></div>
+    <div class="sec-head"><span class="letter">A</span><h2>Application・生活落地</h2><span class="mins">15 分钟</span></div>
     <div class="matrix">
       <div class="card">
         <span class="k">察验・心态</span>
-        <h3>从控制者变成管家</h3>
-        <p>列一张「我以为是我的」清单：时间、钱、名声、孩子、健康、计划。每一项旁边写上「托管」。</p>
-        <p style="margin-top:10px"><b>讨论：</b>清单里哪一项，光是写上「托管」就让你心跳加快？</p>
+        <h3>我以为是我的</h3>
+        <p>列一张清单：时间、钱、名声、孩子、健康、计划。每一项旁边写上「托管」。</p>
+        <textarea class="note" id="n-a1" placeholder="哪一项，光是写上「托管」就让你心跳加快？"></textarea>
       </div>
       <div class="card">
         <span class="k">行为・服事</span>
-        <h3>爱要流向看得见的人</h3>
-        <p>本周找一位具体的人（不是抽象的「穷人」），给一次时间、资源或陪伴。金额与内容由每个人在神面前自己决定，组内不比较、不公开数字。</p>
-        <p style="margin-top:10px"><b>讨论：</b>你身边有谁，是你一直知道需要帮忙、却一直没动的？</p>
+        <h3>一个具体的人</h3>
+        <p>本周找一位具体的人，给一次时间、资源或陪伴。内容由你在神面前决定，组内不比较。</p>
+        <textarea class="note" id="n-a2" placeholder="这个人是谁？你打算做什么？"></textarea>
       </div>
       <div class="card">
         <span class="k">灵性・交托</span>
-        <h3>每天一次「手放开」的祷告</h3>
-        <p>三句式：我抓住的是＿＿；我怕失去的是＿＿；求祢来掌管。每天一分钟，不需要感觉。</p>
-        <p style="margin-top:10px"><b>讨论：</b>你这周的第一句，会怎么填？</p>
+        <h3>手放开的祷告</h3>
+        <p>我抓住的是＿＿；我怕失去的是＿＿；求祢来掌管。</p>
+        <textarea class="note" id="n-a3" placeholder="你这周的三句话"></textarea>
       </div>
     </div>
-    <div class="tip" style="margin-top:12px"><b class="lbl">带领者提示</b>请组员只选一项、写下一个这周做得到的小动作。下周开头用两分钟回顾，不评分，只分享发生了什么。</div>
+    <p class="dig"><b>往下挖一层：</b>你写下的这一步，是出于爱，还是出于想证明自己够好？</p>
+    <p class="dig"><b>只选一件：</b>写下一个这周做得到的小动作，下周聚会开头用两分钟分享。</p>
+    <textarea class="note" id="n-a4" placeholder="我这周的一小步"></textarea>
   </section>
 
-  <!-- T -->
   <section id="close">
-    <div class="sec-head"><span class="letter">T</span><h2>Transformation・支柱二：结束代祷</h2><span class="mins">10 分钟</span></div>
+    <div class="sec-head"><span class="letter">T</span><h2>Transformation・结束代祷</h2><span class="mins">10 分钟</span></div>
     <div class="stack">
       <div class="prayer">
         <h3>感恩赞美</h3>
         <p>主耶稣，感谢祢是唯一良善的那一位。感谢祢在我们还没做到什么之先，就看着我们、爱我们。感谢祢走上十字架，成就了我们永远做不到的事。</p>
       </div>
       <div class="prayer">
-        <h3>悔改回应（请在这里停顿一分钟，让每人在心里说出名字）</h3>
-        <p>主，我们承认，我们常常问「我该做什么」，却不肯承认「我做不到」。我们紧握着（安静）……我们不是不知道，是舍不得。求祢赦免。今天，我们不假装能放得干净，只把手交在祢钉痕的手中。这份焦虑、这个计划、这笔钱、这段关系，求祢来掌管，并赐给我们平安，和这周可以走的一小步。</p>
+        <h3>悔改回应（请在这里安静一分钟）</h3>
+        <p>主，我们承认，我们常常问「我该做什么」，却不肯承认「我做不到」。我们紧握着……（安静，在心里说出名字）……我们不是不知道，是舍不得。求祢赦免。今天，我们不假装能放得干净，只把手交在祢钉痕的手中，求祢来掌管。</p>
       </div>
       <div class="prayer">
-        <h3>教会・团队・个人代祷</h3>
-        <p>为教会：求祢保守牧者与各项事工，让我们不只讲恩典，也活出恩典，照顾身边软弱的人。为我们小组：求祢让我们彼此看见，不比较，也不论断。为每一位：请每人说出一件「这周想学着放手的事」，旁边的人用一句话为他祷告。奉耶稣的名求，阿们。</p>
+        <h3>教会・小组・个人代祷</h3>
+        <p>为教会和牧者；为我们小组彼此看见、不比较；最后，每人说出一件「这周想学着放手的事」，旁边的人用一句话为他祷告。</p>
       </div>
     </div>
   </section>
 
-  <!-- 工具箱 -->
-  <section id="toolbox">
-    <div class="sec-head"><span class="letter">工具箱</span><h2>带领者工具箱与时间分配表</h2></div>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>环节</th><th>重点</th><th class="n">标准版</th><th class="n">60 分钟版</th></tr></thead>
-        <tbody>
-          <tr><td>开场・敬拜与祷告</td><td>空手来到神面前</td><td class="n">10</td><td class="n">7</td></tr>
-          <tr><td>H 破冰</td><td>「做到哪里才安心」的那条线</td><td class="n">10</td><td class="n">5</td></tr>
-          <tr><td>E 读经与感受</td><td>三人轮读、静默、接纳反应</td><td class="n">15</td><td class="n">10</td></tr>
-          <tr><td>R 水深之处</td><td>三道质问与福音转折</td><td class="n">25</td><td class="n">18</td></tr>
-          <tr><td>边界</td><td>左右边界与责备／定罪</td><td class="n">5</td><td class="n">3</td></tr>
-          <tr><td>A 落地</td><td>三项选一、写下一小步</td><td class="n">15</td><td class="n">10</td></tr>
-          <tr><td>T 代祷</td><td>感恩、悔改、代祷</td><td class="n">10</td><td class="n">7</td></tr>
-        </tbody>
-        <tfoot><tr><td colspan="2">合计（分钟）</td><td class="n">90</td><td class="n">60</td></tr></tfoot>
-      </table>
-    </div>
-    <div class="stack" style="margin-top:14px">
-      <div class="tip"><b class="lbl">控场</b>一个人讲太久时，用「谢谢，我想先听听还没说话的人」接过去。沉默超过十秒是正常的，不用急着填满。R 环节的三道质问，可以只挑两个深入，让讨论有时间落地。</div>
-      <div class="tip"><b class="lbl">倾听与回应</b>有人说出失落、愧疚或金钱压力时，先说「谢谢你愿意说」，不要马上引用经文，也不要急着解决。如果对方谈到想伤害自己，或情绪已经超出小组能承接的范围，请在聚会后另外联络牧者或辅导同工。</div>
-      <div class="tip"><b class="lbl">准备工作</b>预备纸笔（A 环节写清单与一小步），预先安排三位轮读者，并为「静默」预留提醒。</div>
-    </div>
+  <section>
+    <div class="sec-head"><span class="letter">同行</span><h2>彼此同行</h2></div>
+    <div class="card"><p>聚会后留一会儿，和身边一位弟兄姐妹说说你这周的那一小步，约好下周互相问一句：「做了吗？」</p></div>
   </section>
 
-  <footer>讲义依据 2026-09-27 主日信息〈人生的终极价值〉（节录自网路）与马可福音 10:17–27（和合本）编写。大师思想为依据其公开著作的提炼，加尔文、凯勒与路易斯的部分未使用专属蒸馏档，带领前建议对照原典再确认。</footer>
+  <footer>本手册依据 2026-09-27 主日信息〈人生的终极价值〉（节录自网络）与马可福音 10:17–27（和合本）编写。输入框里的内容只保存在你自己的这台设备上。</footer>
 </div>
+<script>
+(function(){
+  var KEY='mark10-learner-notes:';
+  var els=document.querySelectorAll('textarea.note');
+  els.forEach(function(el){
+    try{ var v=localStorage.getItem(KEY+el.id); if(v){ el.value=v; } }catch(e){}
+    el.addEventListener('input',function(){ try{ localStorage.setItem(KEY+el.id, el.value); }catch(e){} });
+  });
+})();
+</script>
