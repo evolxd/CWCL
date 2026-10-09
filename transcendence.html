@@ -5,38 +5,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>诸神的人间镜像与超验的公义之剑</title>
   <style>
-    @page { size: 108mm 210mm; margin: 14mm 12mm 14mm 12mm; }
-    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-    body {
-      margin: 0; padding: 16px 12px; background-color: #faf8f5; color: #24292e;
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", serif;
-      font-size: 14px; line-height: 1.85; letter-spacing: 0.3px;
+    @page { 
+      size: 108mm 210mm; 
+      margin: 12mm 10mm 12mm 10mm; 
     }
-    .container { max-width: 480px; margin: 0 auto; }
-    .header-box { text-align: center; padding: 18px 0 14px 0; border-bottom: 1px solid #e2ddd5; margin-bottom: 22px; }
-    .category-tag { display: inline-block; font-size: 10px; letter-spacing: 2px; color: #8c7355; background: #f1ebd8; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; font-weight: 600; }
-    h1 { font-size: 21px; line-height: 1.35; color: #1a1e21; margin: 8px 0 10px 0; font-weight: 700; }
-    .subtitle { font-size: 12.5px; line-height: 1.5; color: #6a6f73; margin: 0; font-weight: 400; }
-    h2 { font-size: 16px; color: #1a1e21; margin-top: 28px; margin-bottom: 12px; padding-left: 10px; border-left: 3.5px solid #8c7355; line-height: 1.4; page-break-after: avoid; }
-    h3 { font-size: 14.5px; color: #3e4449; margin-top: 20px; margin-bottom: 8px; font-weight: 600; page-break-after: avoid; }
-    p { margin: 0 0 14px 0; text-align: justify; }
-    strong { color: #111417; font-weight: 600; }
-    blockquote { margin: 16px 0; padding: 12px 14px; background: #f2eee8; border-left: 3px solid #8c7355; border-radius: 0 6px 6px 0; color: #4a453e; font-size: 13px; line-height: 1.65; }
-    .compare-card { background: #ffffff; border: 1px solid #e8e3dc; border-radius: 8px; padding: 12px 14px; margin: 12px 0 16px 0; }
-    .compare-title { font-size: 13.5px; font-weight: 700; margin-bottom: 8px; }
+    * { 
+      box-sizing: border-box; 
+      -webkit-font-smoothing: antialiased; 
+    }
+    body {
+      margin: 0; 
+      padding: 18px 14px 30px 14px; 
+      background-color: #faf8f5; 
+      color: #24292e;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", serif;
+      font-size: 17px; /* 提升至舒适阅读字号 */
+      line-height: 1.9; /* 舒展行高 */
+      letter-spacing: 0.4px;
+    }
+    .container { 
+      max-width: 520px; 
+      margin: 0 auto; 
+    }
+    .header-box { 
+      text-align: center; 
+      padding: 22px 0 18px 0; 
+      border-bottom: 1.5px solid #e2ddd5; 
+      margin-bottom: 26px; 
+    }
+    .category-tag { 
+      display: inline-block; 
+      font-size: 12px; 
+      letter-spacing: 2px; 
+      color: #8c7355; 
+      background: #f1ebd8; 
+      padding: 4px 12px; 
+      border-radius: 14px; 
+      margin-bottom: 12px; 
+      font-weight: 600; 
+    }
+    h1 { 
+      font-size: 24px; 
+      line-height: 1.4; 
+      color: #1a1e21; 
+      margin: 10px 0 12px 0; 
+      font-weight: 700; 
+    }
+    .subtitle { 
+      font-size: 14.5px; 
+      line-height: 1.6; 
+      color: #6a6f73; 
+      margin: 0; 
+      font-weight: 400; 
+    }
+    h2 { 
+      font-size: 19px; 
+      color: #1a1e21; 
+      margin-top: 34px; 
+      margin-bottom: 16px; 
+      padding-left: 10px; 
+      border-left: 4px solid #8c7355; 
+      line-height: 1.4; 
+      page-break-after: avoid; 
+    }
+    h3 { 
+      font-size: 17px; 
+      color: #2c3e50; 
+      margin-top: 24px; 
+      margin-bottom: 10px; 
+      font-weight: 600; 
+      page-break-after: avoid; 
+    }
+    p { 
+      margin: 0 0 18px 0; 
+      text-align: justify; 
+      text-justify: inter-ideograph;
+    }
+    strong { 
+      color: #111417; 
+      font-weight: 600; 
+    }
+    blockquote { 
+      margin: 20px 0; 
+      padding: 14px 16px; 
+      background: #f2eee8; 
+      border-left: 3.5px solid #8c7355; 
+      border-radius: 0 8px 8px 0; 
+      color: #4a453e; 
+      font-size: 15.5px; 
+      line-height: 1.75; 
+    }
+    blockquote p {
+      margin: 0;
+    }
+    .compare-card { 
+      background: #ffffff; 
+      border: 1px solid #e8e3dc; 
+      border-radius: 10px; 
+      padding: 14px 16px; 
+      margin: 16px 0 20px 0; 
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .compare-title { 
+      font-size: 16px; 
+      font-weight: 700; 
+      margin-bottom: 10px; 
+    }
     .tag-greek { color: #2b6cb0; border-bottom: 2px solid #2b6cb0; }
     .tag-china { color: #c53030; border-bottom: 2px solid #c53030; }
     .tag-hebrew { color: #744210; border-bottom: 2px solid #b7791f; }
-    .compare-item { font-size: 12.5px; margin-bottom: 6px; line-height: 1.55; color: #4a5568; }
-    .visual-card { background: #ffffff; border: 1px solid #e8e3dc; border-radius: 8px; padding: 12px; margin: 16px 0; }
-    .visual-header { font-size: 12.5px; font-weight: 700; color: #2d3748; margin-bottom: 4px; }
-    .visual-desc { font-size: 12px; color: #718096; line-height: 1.5; }
-    .flow-box { background: #ffffff; border: 1px dashed #d2c8bc; border-radius: 6px; padding: 10px; margin: 14px 0; font-size: 11.5px; line-height: 1.55; color: #52473b; }
-    .flow-step { padding: 4px 0; }
-    .arrow { color: #8c7355; text-align: center; font-weight: bold; display: block; }
-    ul { margin: 0 0 14px 0; padding-left: 18px; }
-    li { margin-bottom: 6px; font-size: 13.5px; line-height: 1.7; }
-    .footer { text-align: center; padding: 24px 0 10px 0; border-top: 1px solid #e2ddd5; color: #9c9285; font-size: 11px; }
+    .compare-item { 
+      font-size: 15px; 
+      margin-bottom: 8px; 
+      line-height: 1.65; 
+      color: #3e4449; 
+    }
+    .compare-item b { 
+      color: #1a1e21; 
+    }
+    .visual-card { 
+      background: #ffffff; 
+      border: 1px solid #e8e3dc; 
+      border-radius: 10px; 
+      padding: 14px 16px; 
+      margin: 18px 0; 
+    }
+    .visual-header { 
+      font-size: 15px; 
+      font-weight: 700; 
+      color: #2d3748; 
+      margin-bottom: 6px; 
+    }
+    .visual-desc { 
+      font-size: 14px; 
+      color: #64748b; 
+      line-height: 1.6; 
+    }
+    .flow-box { 
+      background: #ffffff; 
+      border: 1px dashed #d2c8bc; 
+      border-radius: 8px; 
+      padding: 14px 16px; 
+      margin: 18px 0; 
+      font-size: 14.5px; 
+      line-height: 1.7; 
+      color: #4a4036; 
+    }
+    .flow-step { 
+      padding: 5px 0; 
+    }
+    .arrow { 
+      color: #8c7355; 
+      text-align: center; 
+      font-weight: bold; 
+      display: block; 
+      font-size: 16px;
+      margin: 2px 0;
+    }
+    ul { 
+      margin: 0 0 18px 0; 
+      padding-left: 20px; 
+    }
+    li { 
+      margin-bottom: 8px; 
+      font-size: 16px; 
+      line-height: 1.8; 
+    }
+    .footer { 
+      text-align: center; 
+      padding: 28px 0 14px 0; 
+      border-top: 1px solid #e2ddd5; 
+      color: #9c9285; 
+      font-size: 12.5px; 
+    }
   </style>
 </head>
 <body>
@@ -59,7 +200,7 @@
     <div class="compare-title tag-greek">Ⅰ. 古希腊神话：奥林匹斯模型</div>
     <div class="compare-item"><b>内核本质：</b>人性七情六欲与私欲的极端放大版。</div>
     <div class="compare-item"><b>权力结构：</b>诸神各据一方割据，宙斯亦受制于“命运”。</div>
-    <div class="compare-item"><b>人间投射：</b>催生了城邦多元格局与抗争悲剧精神；但因神祇缺乏公义信实，难逃弱肉强食与奴隶制衰亡。</div>
+    <div class="compare-item"><b>人间投射：</b>催生了城邦多元格局与抗争悲剧精神；但因神祇缺乏公义信实，难逃弱肉强食与奴练制衰亡。</div>
   </div>
 
   <div class="visual-card">
