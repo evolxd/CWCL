@@ -8,7 +8,7 @@
     @page { size: 108mm 210mm; margin: 14mm 12mm 14mm 12mm; }
     * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
     body {
-      margin: 0; padding: 20px 15px; background-color: #faf8f5; color: #24292e;
+      margin: 0; padding: 20px 16px; background-color: #faf8f5; color: #24292e;
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", serif;
       font-size: 14.5px; line-height: 1.85; letter-spacing: 0.3px;
     }
@@ -21,18 +21,51 @@
     h1 { font-size: 21px; line-height: 1.45; color: #1a1e21; margin: 8px 0 10px 0; font-weight: 700; letter-spacing: 0.5px; }
     .main-topic { font-size: 15px; font-weight: 600; color: #8c7355; margin: 6px 0 8px 0; line-height: 1.4; }
     .subtitle { font-size: 12.5px; line-height: 1.55; color: #6a6f73; margin: 0; font-weight: 400; }
-    h2 { font-size: 16px; color: #1a1e21; margin-top: 30px; margin-bottom: 14px; padding-left: 10px; border-left: 3.5px solid #8c7355; line-height: 1.4; }
+    h2 { font-size: 16px; color: #1a1e21; margin-top: 32px; margin-bottom: 14px; padding-left: 10px; border-left: 3.5px solid #8c7355; line-height: 1.4; }
     h3 { font-size: 14.5px; color: #3e4449; margin-top: 22px; margin-bottom: 8px; font-weight: 600; }
     p { margin: 0 0 14px 0; text-align: justify; text-justify: inter-ideograph; }
     strong { color: #111417; font-weight: 600; }
     blockquote { margin: 16px 0; padding: 12px 14px; background: #f2eee8; border-left: 3px solid #8c7355; border-radius: 0 6px 6px 0; color: #4a453e; font-size: 13px; line-height: 1.65; }
     blockquote p { margin: 0; }
-    .diagram-box {
-      background: #f4efe8; border: 1px solid #e2ddd5; border-radius: 6px;
-      padding: 12px; margin: 16px 0; font-family: "Courier New", Consolas, monospace;
-      font-size: 11.5px; line-height: 1.45; overflow-x: auto; color: #403830;
-      white-space: pre;
+    
+    /* 专为移动端设计的垂直卡片体系，彻底杜绝横向滚动 */
+    .model-group {
+      background: #f7f3ec; border: 1px solid #e5dfd5; border-radius: 8px;
+      padding: 14px 12px; margin: 18px 0 22px 0;
     }
+    .model-group-title {
+      font-size: 13px; font-weight: 700; color: #8c7355; text-align: center;
+      margin-bottom: 12px; letter-spacing: 1px;
+    }
+    .model-subcard {
+      background: #ffffff; border: 1px solid #e8e3dc; border-radius: 6px;
+      padding: 10px 12px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+    .model-subcard:last-child { margin-bottom: 0; }
+    .model-tag { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+    .tag-blue { color: #2b6cb0; border-left: 3px solid #2b6cb0; padding-left: 6px; }
+    .tag-red { color: #c53030; border-left: 3px solid #c53030; padding-left: 6px; }
+    .tag-gold { color: #8c6820; border-left: 3px solid #b7791f; padding-left: 6px; }
+    .model-item { font-size: 12.5px; line-height: 1.6; color: #4a5568; margin-bottom: 3px; }
+    .model-item b { color: #2d3748; }
+
+    /* 纵向流程框体系 */
+    .flow-vertical {
+      background: #ffffff; border: 1px solid #e5dfd5; border-radius: 8px;
+      padding: 14px; margin: 16px 0;
+    }
+    .flow-title { font-size: 13px; font-weight: 700; color: #744210; text-align: center; margin-bottom: 12px; }
+    .flow-node {
+      background: #faf8f5; border: 1px solid #e8e3dc; border-radius: 6px;
+      padding: 8px 10px; font-size: 12.5px; line-height: 1.55; color: #3d3730;
+    }
+    .flow-arrow-down {
+      text-align: center; color: #8c7355; font-size: 14px; font-weight: bold; margin: 4px 0;
+    }
+    .flow-node-final {
+      background: #fbf7ee; border: 1.5px solid #c9a86a; color: #6b470b; font-weight: 600; text-align: center;
+    }
+
     ul, ol { margin: 0 0 14px 0; padding-left: 20px; }
     li { margin-bottom: 8px; font-size: 13.5px; line-height: 1.7; }
     .footer { text-align: center; padding: 26px 0 12px 0; border-top: 1px solid #e2ddd5; color: #9c9285; font-size: 11.5px; letter-spacing: 1px; }
@@ -59,16 +92,31 @@
   <h2>第一章 三种文明的神圣想象力模型及其社会投射</h2>
   <p>人类对“神”的构想，绝非单纯的文学幻想，而是一个文明对其社会秩序原型、权力边界法则以及生命意义终极归宿的投射。天上立着怎样的神，地上便会立起怎样的君王；天上运行着怎样的秩序，地上便会铺设怎样的法度。</p>
 
-  <div class="diagram-box">┌───────────────────────────────────────────────┐
-│          人类对终极秩序的三种想象力模型         │
-└──────────────────────┬────────────────────────┘
-                       │
-         ┌─────────────┴─────────────┐
-         ▼                           ▼
-【古希腊：奥林匹斯模型】       【中国传统：天庭官僚模型】       【希伯来/基督：超验公义模型】
-- 本质：人性之极致放大         • 本质：世俗官僚的升维复印       • 本质：不可具象之创造者与公义本体
-- 结构：多神割据、受制于命运   • 结构：玉帝居中、人间皇帝可册封 • 结构：神在万有之上、王与万民同受约束
-- 结果：催生城邦博弈与思辨     • 结果：神圣化等级依附与潜规则   • 结果：奠定绝对平等与自然法基石</div>
+  <!-- 垂直堆叠自适应卡片：替代原有横向 ASCII 图，彻底免除左右拖动 -->
+  <div class="model-group">
+    <div class="model-group-title">【人类对终极秩序的三种想象力模型】</div>
+    
+    <div class="model-subcard">
+      <div class="model-tag tag-blue">Ⅰ. 古希腊：奥林匹斯模型</div>
+      <div class="model-item"><b>本质：</b>人性七情六欲与私欲争夺的无限放大版</div>
+      <div class="model-item"><b>结构：</b>多神割据、受制于冷酷命运法则</div>
+      <div class="model-item"><b>结果：</b>催生城邦思辨竞争，但因缺乏公义终走向内耗衰亡</div>
+    </div>
+
+    <div class="model-subcard">
+      <div class="model-tag tag-red">Ⅱ. 中国传统：天庭官僚模型</div>
+      <div class="model-item"><b>本质：</b>世俗大一统官僚科层在天空的升维复印件</div>
+      <div class="model-item"><b>结构：</b>玉帝垂拱居中、世俗皇帝可跨界敕封加封神明品阶</div>
+      <div class="model-item"><b>结果：</b>神圣化等级依附、特权庇护与寻租潜规则</div>
+    </div>
+
+    <div class="model-subcard">
+      <div class="model-tag tag-gold">Ⅲ. 希伯来 / 基督：超验公义模型</div>
+      <div class="model-item"><b>本质：</b>不可雕刻偶像、超越万有的终极创造者与公义本体</div>
+      <div class="model-item"><b>结构：</b>神在万有之上，君王与万民同为受造、同受律法约束</div>
+      <div class="model-item"><b>结果：</b>确立众生平等与王在法下的自然法宪政基石</div>
+    </div>
+  </div>
 
   <h3>1. 古希腊的奥林匹斯模型：人性与欲望的极致放大，破碎的神圣割据</h3>
   <p>古希腊人的神圣世界坐落在奥林匹斯山之巅。这群由荷马与赫西俄德吟诵的神祇，与人类有着相同的相貌、相通的七情六欲，甚至在道德上比优秀的凡人更加卑劣与任性。</p>
@@ -94,9 +142,15 @@
   <p><strong>致命的倒错：人间皇帝对神明拥有“行政任命权”</strong><br>
   最为关键的是，在中国古代政治结构中，天神不是人间的尺度，世俗皇帝反而是天神的上级。</p>
 
-  <div class="diagram-box">世俗政权（皇帝） ──(降旨册封)──> 地方神明（加封品阶） ──(庇佑威权)──> 顺服草民
-      ▲                                                              │
-      └─────────────────────(以香火行贿换取特权庇护)───────────────────┘</div>
+  <!-- 纵向交互流程图：替代单行过长的 ASCII 图 -->
+  <div class="flow-vertical">
+    <div class="flow-title">【中国传统神权依附链条】</div>
+    <div class="flow-node"><b>① 世俗最高政权（皇帝）</b>：兼具世俗元首与最高祭司，降旨下谕</div>
+    <div class="flow-arrow-down">↓ (以圣旨层层册封品阶加号)</div>
+    <div class="flow-node"><b>② 地方神明体系（关羽、妈祖等）</b>：接受朝廷收编，充当编外维稳力量</div>
+    <div class="flow-arrow-down">↓ (以神威护佑忠君顺民)</div>
+    <div class="flow-node"><b>③ 顺服草民</b>：烧香磕头纳贡，以香火换取特权庇护与免灾对冲</div>
+  </div>
 
   <p>自汉代确立“天子奉天承运”以来，世俗最高统治者兼具政治元首与最高祭司双重身份。地方上有灵验传说，地方官写奏折上报朝廷，礼部审核核准，皇帝即可降旨封神加号：</p>
   <ul>
@@ -132,16 +186,24 @@
     <li>强如大卫，亦只能在不可违抗的神圣公义面前剥下王袍，当众撕裂衣服、坐在灰烬中向造物主痛哭悔罪。</li>
   </ul>
 
-  <div class="diagram-box">              ┌─────────────────────────────────┐
-              │  不可具象之超验上帝 / 终极自然法 │
-              └───────────────┬─────────────────┘
-                              │ 盟约约束 (Covenant)
-          ┌───────────────────┴───────────────────┐
-          ▼                                       ▼
-┌──────────────────┐                    ┌──────────────────┐
-│   世俗君王/统管者  │ &lt;── 先知奉超验准则 ──  │  平民/受造万民   │
-│   (必须遵守律法)  │      当面痛斥审判      │ (享有神圣人格尊严)│
-└──────────────────┘                    └──────────────────┘</div>
+  <!-- 纵向盟约架构图：避免左右滚动 -->
+  <div class="flow-vertical">
+    <div class="flow-title">【希伯来盟约宪政胚胎架构】</div>
+    <div class="flow-node" style="text-align:center; font-weight:700; color:#8c6820;">
+      不可具象之超验上帝 / 终极自然法（至高公义法统）
+    </div>
+    <div class="flow-arrow-down">↓ 赋予普遍盟约 (Covenant) 与绝对约束</div>
+    <div style="display: flex; gap: 8px;">
+      <div class="flow-node" style="flex: 1;">
+        <b>世俗君王 / 统管者</b><br>
+        <span style="font-size: 11.5px; color:#666;">（仅具行政之权，受先知直斥，必须屈膝遵法）</span>
+      </div>
+      <div class="flow-node" style="flex: 1;">
+        <b>平民 / 受造万民</b><br>
+        <span style="font-size: 11.5px; color:#666;">（同享神圣人格尊严，直面天道良知）</span>
+      </div>
+    </div>
+  </div>
 
   <p>这一幕是现代法治文明的真正黎明。它确立了一个铁律：<strong>正义高于王权，天理先于国法。</strong>法律不是君王的工具，而是连君王都必须屈膝服从的誓约。正是在这一精神传统中，孕育出了英国普通法奠基人亨利·德·布拉克顿（Henry de Bracton）那句响彻宪政史的名言：</p>
   <blockquote>
@@ -169,18 +231,17 @@
   <p>任何成熟的极权制度，其长治久安的核心技术都在于社会原子化。</p>
   <p>它必须有条不紊地拆解传统宗族、行会、独立自治组织以及一切横向的民间纽带，把每一个公民都变成孤立无援、神经紧绷的“单向度的人”。当人人彼此戒备、互为潜在举报者时，全社会便陷入了霍布斯式的互害丛林；每一个孤立的个体在庞大的利维坦面前，如同蚍蜉撼树，绝望之下唯一的理性生存策略就是自我阉割、放弃尊严，主动依附特权，成为系统上的一颗螺丝钉。</p>
 
-  <div class="diagram-box">【原子化专制社会】                  【超越性信仰共同体】
-
-    ┌────────┐                        ┌────────┐
-    │ 极大利维坦│                        │ 超验上帝 │
-    └──┬─┬─┬─┘                        └──┬───┬┘
-       │ │ │ (单向绝对控制)                │   │ (共同敬畏)
-    ┌──▼─▼─▼──┐                       ┌──▼───▼──┐
-    │ 孤立个体 │ &lt;── 相互猜忌、举报 ──> │ 信徒信众 │
-    │ 孤立个体 │                       │   ▲     │
-    │ 孤立个体 │                       └───┼─────┘
-    └─────────┘                           │ 彼此相爱、守约、互助
-  (毫无抵抗力的沙砾)                     (坚不可摧的自治共同体)</div>
+  <!-- 纵向对比卡片：替代原子化 ASCII 对比 -->
+  <div style="display: flex; flex-direction: column; gap: 10px; margin: 16px 0;">
+    <div style="background: #fff; border: 1px solid #e2ddd5; border-radius: 6px; padding: 10px 12px;">
+      <div style="font-weight: 700; color: #c53030; font-size: 13px; margin-bottom: 4px;">【模式 A：原子化专制社会】</div>
+      <div style="font-size: 12.5px; color: #555; line-height: 1.55;">极大利维坦单向绝对掌控 ➔ 个体孤立无援、彼此猜忌举报 ➔ 丧失组织力，沦为任人收割的沙砾。</div>
+    </div>
+    <div style="background: #fff; border: 1.5px solid #c9a86a; border-radius: 6px; padding: 10px 12px;">
+      <div style="font-weight: 700; color: #8c6820; font-size: 13px; margin-bottom: 4px;">【模式 B：超越性信仰共同体】</div>
+      <div style="font-size: 12.5px; color: #555; line-height: 1.55;">共同敬畏超验准则 ➔ 信众超越血缘守约相爱、彼此互助 ➔ 凝结为坚不可摧、高度自治的有机实体。</div>
+    </div>
+  </div>
 
   <p>然而，一个基于超越性信仰的共同体，天然是原子化统治术的克星与清道夫：</p>
   <ul>
@@ -206,27 +267,42 @@
   <p>历史的答案是冷酷而清醒的：绝非如此。</p>
   <p>信仰的超验维度是法治文明生长的“精神种子”与“道德底座”，但要将特权阶级真正逼入法律的笼子，必须经过漫长、残酷且极其复杂的世俗力量对抗与机制博弈。即便在奠定了现代法治的西方历史中，特权也绝非因为君王痛哭悔罪而自愿放弃，而是超验的法治伦理与现实的世俗力量在千百年间共同绞杀、博弈而出的产物。</p>
 
-  <div class="diagram-box">┌─────────────────────────────────────────────────────────────┐
-│                 法治社会与特权熄火的“三螺旋动力模型”         │
-└─────────────────────────────────────────────────────────────┘
+  <!-- 纵向“三螺旋动力模型”流式图：大幅增加高度，完全消除左右滑动 -->
+  <div class="flow-vertical">
+    <div class="flow-title">【法治社会与特权熄火的“三螺旋动力模型”】</div>
+    
+    <div class="flow-node">
+      <b>① 精神维度：超验公义与自然法准则</b><br>
+      <span style="font-size: 11.5px; color:#555;">确立“王在法下”的至高正当性，终结肉身君权神化</span>
+    </div>
+    
+    <div class="flow-arrow-down">↓ 精神奠基 ＋ 现实对撞</div>
+    
+    <div class="flow-node">
+      <b>② 现实维度：统治成本高企与财政刚性约束</b><br>
+      <span style="font-size: 11.5px; color:#555;">如1215年大宪章——税权博弈逼退王权，掠夺成本大于妥协成本</span>
+    </div>
 
-       【精神维度】                       【现实维度】
-   超验公义与自然法准则            统治成本高企与财政刚性约束
-  (确立“人在法下”的正当性)         (逼迫强权低头谈判，如《大宪章》)
-           │                                   │
-           └───┐                           ┌───┘
-               ▼                           ▼
-          【内在博弈】特权阶层内部的残酷倾轧与自保避险需求
-                     (制定程序法防备彼此，设立安全防波堤)
-                                   │
-                                   ▼
-          【结构底座】现代分工协作对“产权与契约确定性”的刚性需求
-                     (商人、中产等法治同盟推动规则定型)
-                                   │
-                                   ▼
-                    ┌─────────────────────────┐
-                    │  特权彻底熄火，进入现代法治 │
-                    └─────────────────────────┘</div>
+    <div class="flow-arrow-down">↓ 倒逼体制内部博弈</div>
+
+    <div class="flow-node">
+      <b>③ 内在博弈：特权阶层内部残酷倾轧与自保避险</b><br>
+      <span style="font-size: 11.5px; color:#555;">防备对手无底线清算，各方达成底线妥协，设立司法程序防波堤</span>
+    </div>
+
+    <div class="flow-arrow-down">↓ 现代分工体系扩展</div>
+
+    <div class="flow-node">
+      <b>④ 结构底座：工商业网络对“产权与契约确定性”的刚性需求</b><br>
+      <span style="font-size: 11.5px; color:#555;">中产、商人与市民形成同盟，逼退公权力任意掠夺</span>
+    </div>
+
+    <div class="flow-arrow-down">↓ 汇流凝结</div>
+
+    <div class="flow-node flow-node-final">
+      🏁 现代法治确立：特权被永久关入刚性程序之笼
+    </div>
+  </div>
 
   <h3>1. 精神超越性防范了“神权自腐”，确立了法治的先决合法性</h3>
   <p>如果没有超越性的“自然法”与“王在法下”的观念铺垫，世俗的力量博弈最终只会沦为中国历史上的周期律怪圈——“流寇打倒了皇帝，流寇自己坐上龙椅变成更残暴的皇帝”。</p>
