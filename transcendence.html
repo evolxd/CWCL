@@ -2,73 +2,99 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>为什么历代帝王，最怕民间有自己的“想象力”？ | 听如婴直播有感 · 交流札记</title>
   <style>
     @page { size: 108mm 210mm; margin: 14mm 12mm 14mm 12mm; }
-    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+    
+    /* 基础桌面/宽屏排版 */
     body {
-      margin: 0; padding: 22px 18px; background-color: #faf8f5; color: #24292e;
+      margin: 0; padding: 28px 20px; background-color: #faf8f5; color: #23272a;
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", serif;
-      font-size: 16.5px; line-height: 1.9; letter-spacing: 0.4px;
+      font-size: 17px; line-height: 1.9; letter-spacing: 0.4px;
     }
-    .container { max-width: 520px; margin: 0 auto; }
-    .header-box { text-align: center; padding: 18px 0 20px 0; border-bottom: 1px solid #e2ddd5; margin-bottom: 26px; }
+    .container { max-width: 580px; margin: 0 auto; width: 100%; }
+    .header-box { text-align: center; padding: 16px 0 22px 0; border-bottom: 1px solid #e2ddd5; margin-bottom: 26px; }
     .category-tag {
-      display: inline-block; font-size: 12.5px; letter-spacing: 2px;
-      color: #8c7355; background: #f1ebd8; padding: 5px 14px; border-radius: 14px; margin-bottom: 14px; font-weight: 600;
+      display: inline-block; font-size: 13px; letter-spacing: 2px;
+      color: #8c7355; background: #f1ebd8; padding: 6px 16px; border-radius: 16px; margin-bottom: 14px; font-weight: 600;
     }
-    h1 { font-size: 23px; line-height: 1.45; color: #1a1e21; margin: 8px 0 12px 0; font-weight: 700; letter-spacing: 0.5px; }
-    .main-topic { font-size: 17px; font-weight: 600; color: #8c7355; margin: 6px 0 8px 0; line-height: 1.45; }
-    .subtitle { font-size: 14px; line-height: 1.6; color: #6a6f73; margin: 0; font-weight: 400; }
-    h2 { font-size: 18.5px; color: #1a1e21; margin-top: 36px; margin-bottom: 16px; padding-left: 12px; border-left: 4px solid #8c7355; line-height: 1.4; }
-    h3 { font-size: 16.5px; color: #3e4449; margin-top: 26px; margin-bottom: 10px; font-weight: 600; }
-    p { margin: 0 0 16px 0; text-align: justify; text-justify: inter-ideograph; }
+    h1 { font-size: 24px; line-height: 1.45; color: #1a1e21; margin: 8px 0 12px 0; font-weight: 700; letter-spacing: 0.5px; }
+    .main-topic { font-size: 18px; font-weight: 600; color: #8c7355; margin: 6px 0 8px 0; line-height: 1.45; }
+    .subtitle { font-size: 14.5px; line-height: 1.6; color: #6a6f73; margin: 0; font-weight: 400; }
+    h2 { font-size: 19.5px; color: #1a1e21; margin-top: 38px; margin-bottom: 16px; padding-left: 12px; border-left: 4px solid #8c7355; line-height: 1.4; }
+    h3 { font-size: 17.5px; color: #3e4449; margin-top: 28px; margin-bottom: 12px; font-weight: 600; }
+    p { margin: 0 0 18px 0; text-align: justify; text-justify: inter-ideograph; word-break: break-word; }
     strong { color: #111417; font-weight: 600; }
-    blockquote { margin: 18px 0; padding: 14px 16px; background: #f2eee8; border-left: 3.5px solid #8c7355; border-radius: 0 6px 6px 0; color: #4a453e; font-size: 15px; line-height: 1.75; }
+    blockquote { margin: 20px 0; padding: 14px 18px; background: #f2eee8; border-left: 4px solid #8c7355; border-radius: 0 6px 6px 0; color: #4a453e; font-size: 16px; line-height: 1.75; }
     blockquote p { margin: 0; }
     
-    /* 移动端垂直流式卡片 */
+    /* 纵向对比与流程体系 */
     .model-group {
-      background: #f7f3ec; border: 1px solid #e5dfd5; border-radius: 8px;
-      padding: 16px 14px; margin: 20px 0 24px 0;
+      background: #f7f3ec; border: 1px solid #e5dfd5; border-radius: 10px;
+      padding: 18px 16px; margin: 22px 0 26px 0;
     }
     .model-group-title {
-      font-size: 14.5px; font-weight: 700; color: #8c7355; text-align: center;
-      margin-bottom: 14px; letter-spacing: 1px;
+      font-size: 15.5px; font-weight: 700; color: #8c7355; text-align: center;
+      margin-bottom: 16px; letter-spacing: 1px;
     }
     .model-subcard {
-      background: #ffffff; border: 1px solid #e8e3dc; border-radius: 6px;
-      padding: 12px 14px; margin-bottom: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+      background: #ffffff; border: 1px solid #e8e3dc; border-radius: 8px;
+      padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);
     }
     .model-subcard:last-child { margin-bottom: 0; }
-    .model-tag { font-size: 14.5px; font-weight: 700; margin-bottom: 8px; }
+    .model-tag { font-size: 15.5px; font-weight: 700; margin-bottom: 8px; }
     .tag-blue { color: #2b6cb0; border-left: 3.5px solid #2b6cb0; padding-left: 8px; }
     .tag-red { color: #c53030; border-left: 3.5px solid #c53030; padding-left: 8px; }
     .tag-gold { color: #8c6820; border-left: 3.5px solid #b7791f; padding-left: 8px; }
-    .model-item { font-size: 14px; line-height: 1.7; color: #4a5568; margin-bottom: 5px; }
+    .model-item { font-size: 15px; line-height: 1.75; color: #4a5568; margin-bottom: 6px; }
     .model-item b { color: #2d3748; }
 
-    /* 纵向流程体系 */
     .flow-vertical {
-      background: #ffffff; border: 1px solid #e5dfd5; border-radius: 8px;
-      padding: 16px 14px; margin: 18px 0;
+      background: #ffffff; border: 1px solid #e5dfd5; border-radius: 10px;
+      padding: 18px 16px; margin: 20px 0;
     }
-    .flow-title { font-size: 14.5px; font-weight: 700; color: #744210; text-align: center; margin-bottom: 14px; }
+    .flow-title { font-size: 15.5px; font-weight: 700; color: #744210; text-align: center; margin-bottom: 16px; }
     .flow-node {
       background: #faf8f5; border: 1px solid #e8e3dc; border-radius: 6px;
-      padding: 10px 12px; font-size: 14px; line-height: 1.65; color: #3d3730;
+      padding: 12px 14px; font-size: 15px; line-height: 1.65; color: #3d3730;
     }
     .flow-arrow-down {
-      text-align: center; color: #8c7355; font-size: 15px; font-weight: bold; margin: 6px 0;
+      text-align: center; color: #8c7355; font-size: 16px; font-weight: bold; margin: 8px 0;
     }
     .flow-node-final {
-      background: #fbf7ee; border: 1.5px solid #c9a86a; color: #6b470b; font-weight: 600; text-align: center; font-size: 14.5px; padding: 12px;
+      background: #fbf7ee; border: 1.5px solid #c9a86a; color: #6b470b; font-weight: 600; text-align: center; font-size: 15.5px; padding: 14px;
     }
 
-    ul, ol { margin: 0 0 16px 0; padding-left: 22px; }
-    li { margin-bottom: 10px; font-size: 15px; line-height: 1.75; }
-    .footer { text-align: center; padding: 30px 0 16px 0; border-top: 1px solid #e2ddd5; color: #9c9285; font-size: 12.5px; letter-spacing: 1px; }
+    ul, ol { margin: 0 0 18px 0; padding-left: 24px; }
+    li { margin-bottom: 10px; font-size: 16px; line-height: 1.8; }
+    .footer { text-align: center; padding: 32px 0 18px 0; border-top: 1px solid #e2ddd5; color: #9c9285; font-size: 13px; letter-spacing: 1px; }
+
+    /* ========== 专门针对手机屏幕（宽度 <= 600px）的大字号与全屏阅读优化 ========== */
+    @media screen and (max-width: 600px) {
+      body {
+        padding: 20px 14px;
+        font-size: 17.5px; /* 手机主文字号显著放大 */
+        line-height: 1.95;
+        letter-spacing: 0.45px;
+      }
+      .container { max-width: 100%; }
+      h1 { font-size: 22.5px; line-height: 1.4; }
+      .main-topic { font-size: 17.5px; }
+      .subtitle { font-size: 14.5px; line-height: 1.6; }
+      h2 { font-size: 19.5px; margin-top: 32px; padding-left: 10px; }
+      h3 { font-size: 18px; margin-top: 24px; }
+      p { margin-bottom: 16px; }
+      blockquote { font-size: 16px; padding: 12px 14px; margin: 16px 0; }
+      .model-group { padding: 14px 10px; }
+      .model-subcard { padding: 12px 12px; }
+      .model-item { font-size: 15px; line-height: 1.7; }
+      .flow-vertical { padding: 14px 10px; }
+      .flow-node { font-size: 15px; padding: 10px 12px; }
+      .flow-node-final { font-size: 15.5px; padding: 12px; }
+      li { font-size: 16.5px; line-height: 1.8; }
+    }
   </style>
 </head>
 <body>
@@ -190,14 +216,14 @@
       不可具象之超验上帝 / 终极自然法（至高公义法统）
     </div>
     <div class="flow-arrow-down">↓ 赋予普遍盟约 (Covenant) 与绝对约束</div>
-    <div style="display: flex; gap: 10px;">
-      <div class="flow-node" style="flex: 1;">
+    <div style="display: flex; gap: 10px; flex-direction: column;">
+      <div class="flow-node">
         <b>世俗君王 / 统管者</b><br>
-        <span style="font-size: 13px; color:#666;">（仅具行政之权，受先知直斥，必须屈膝遵法）</span>
+        <span style="font-size: 14px; color:#666;">（仅具世俗行政之权，受先知直斥，必须屈膝服从神圣誓约）</span>
       </div>
-      <div class="flow-node" style="flex: 1;">
+      <div class="flow-node">
         <b>平民 / 受造万民</b><br>
-        <span style="font-size: 13px; color:#666;">（同享神圣人格尊严，直面天道良知）</span>
+        <span style="font-size: 14px; color:#666;">（同享神圣人格尊严与天道良知，免于沦为强权附庸）</span>
       </div>
     </div>
   </div>
@@ -229,13 +255,13 @@
   <p>它必须有条不紊地拆解传统宗族、行会、独立自治组织以及一切横向的民间纽带，把每一个公民都变成孤立无援、神经紧绷的“单向度的人”。当人人彼此戒备、互为潜在举报者时，全社会便陷入了霍布斯式的互害丛林；每一个孤立的个体在庞大的利维坦面前，如同蚍蜉撼树，绝望之下唯一的理性生存策略就是自我阉割、放弃尊严，主动依附特权，成为系统上的一颗螺丝钉。</p>
 
   <div style="display: flex; flex-direction: column; gap: 12px; margin: 18px 0;">
-    <div style="background: #fff; border: 1px solid #e2ddd5; border-radius: 6px; padding: 12px 14px;">
-      <div style="font-weight: 700; color: #c53030; font-size: 14.5px; margin-bottom: 6px;">【模式 A：原子化专制社会】</div>
-      <div style="font-size: 14px; color: #555; line-height: 1.65;">极大利维坦单向绝对掌控 ➔ 个体孤立无援、彼此猜忌举报 ➔ 丧失组织力，沦为任人收割的沙砾。</div>
+    <div style="background: #fff; border: 1px solid #e2ddd5; border-radius: 8px; padding: 14px 16px;">
+      <div style="font-weight: 700; color: #c53030; font-size: 15.5px; margin-bottom: 6px;">【模式 A：原子化专制社会】</div>
+      <div style="font-size: 15px; color: #555; line-height: 1.7;">极大利维坦单向绝对掌控 ➔ 个体孤立无援、彼此猜忌举报 ➔ 丧失组织力，沦为任人收割的沙砾。</div>
     </div>
-    <div style="background: #fff; border: 1.5px solid #c9a86a; border-radius: 6px; padding: 12px 14px;">
-      <div style="font-weight: 700; color: #8c6820; font-size: 14.5px; margin-bottom: 6px;">【模式 B：超越性信仰共同体】</div>
-      <div style="font-size: 14px; color: #555; line-height: 1.65;">共同敬畏超验准则 ➔ 信众超越血缘守约相爱、彼此互助 ➔ 凝结为坚不可摧、高度自治的有机实体。</div>
+    <div style="background: #fff; border: 1.5px solid #c9a86a; border-radius: 8px; padding: 14px 16px;">
+      <div style="font-weight: 700; color: #8c6820; font-size: 15.5px; margin-bottom: 6px;">【模式 B：超越性信仰共同体】</div>
+      <div style="font-size: 15px; color: #555; line-height: 1.7;">共同敬畏超验准则 ➔ 信众超越血缘守约相爱、彼此互助 ➔ 凝结为坚不可摧、高度自治的有机实体。</div>
     </div>
   </div>
 
@@ -268,28 +294,28 @@
     
     <div class="flow-node">
       <b>① 精神维度：超验公义与自然法准则</b><br>
-      <span style="font-size: 13px; color:#555;">确立“王在法下”的至高正当性，终结肉身君权神化</span>
+      <span style="font-size: 14px; color:#555;">确立“王在法下”的至高正当性，终结肉身君权神化</span>
     </div>
     
     <div class="flow-arrow-down">↓ 精神奠基 ＋ 现实对撞</div>
     
     <div class="flow-node">
       <b>② 现实维度：统治成本高企与财政刚性约束</b><br>
-      <span style="font-size: 13px; color:#555;">如1215年大宪章——税权博弈逼退王权，掠夺成本大于妥协成本</span>
+      <span style="font-size: 14px; color:#555;">如1215年大宪章——税权博弈逼退王权，掠夺成本大于妥协成本</span>
     </div>
 
     <div class="flow-arrow-down">↓ 倒逼体制内部博弈</div>
 
     <div class="flow-node">
       <b>③ 内在博弈：特权阶层内部残酷倾轧与自保避险</b><br>
-      <span style="font-size: 13px; color:#555;">防备对手无底线清算，各方达成底线妥协，设立司法程序防波堤</span>
+      <span style="font-size: 14px; color:#555;">防备对手无底线清算，各方达成底线妥协，设立司法程序防波堤</span>
     </div>
 
     <div class="flow-arrow-down">↓ 现代分工体系扩展</div>
 
     <div class="flow-node">
       <b>④ 结构底座：工商业网络对“产权与契约确定性”的刚性需求</b><br>
-      <span style="font-size: 13px; color:#555;">中产、商人与市民形成同盟，逼退公权力任意掠夺</span>
+      <span style="font-size: 14px; color:#555;">中产、商人与市民形成同盟，逼退公权力任意掠夺</span>
     </div>
 
     <div class="flow-arrow-down">↓ 汇流凝结</div>
