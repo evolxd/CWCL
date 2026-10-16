@@ -34,10 +34,6 @@
       border-left: 3px solid #d97706;
       background: linear-gradient(to right, rgba(217, 119, 6, 0.04), transparent);
     }
-    .callout-red {
-      border-left: 3px solid #dc2626;
-      background: linear-gradient(to right, rgba(220, 38, 38, 0.04), transparent);
-    }
   </style>
 </head>
 <body class="antialiased selection:bg-blue-100 selection:text-blue-900">
@@ -53,7 +49,7 @@
       <div class="flex items-center gap-3 text-slate-400">
         <span>OCT 2026</span>
         <span class="w-1 h-1 rounded-full bg-slate-300"></span>
-        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">DOC #AI9901 FULL</span>
+        <span class="px-2 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200/70 font-medium">INTERNAL USE ONLY</span>
       </div>
     </div>
   </nav>
@@ -73,9 +69,15 @@
         从能量墙到资本出清：<br class="hidden sm:inline">算力大变局与底层资产启示录
       </h1>
       
-      <p class="text-slate-500 text-base sm:text-lg font-light leading-relaxed mb-8">
+      <p class="text-slate-500 text-base sm:text-lg font-light leading-relaxed mb-6">
         全景复盘 WEST MAX 闭门研讨全部核心推演：物理电网硬死穴、微观工程散热真相、算力利用率骗局、百倍 Capex 鸿沟与宏观资产流动性定锚。
       </p>
+
+      <!-- 内部声明警告条 -->
+      <div class="mb-6 px-4 py-2.5 rounded-md bg-amber-50 border border-amber-200 text-amber-900 text-xs font-mono-code flex items-center gap-2">
+        <svg class="w-4 h-4 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+        <span><strong>【内部保密声明】</strong> 以上内容仅限 A99 俱乐部内部学习，禁止转发。</span>
+      </div>
 
       <!-- 规范署名与背景栏 -->
       <div class="p-4 rounded-lg bg-slate-50/80 border border-slate-200/70 text-xs font-mono-code text-slate-600 space-y-2">
@@ -97,7 +99,6 @@
     <!-- 正文内容区 -->
     <div class="text-[1.0625rem] leading-[1.95] text-slate-700 space-y-14">
 
-      <!-- 前言导读 -->
       <section class="space-y-4">
         <p class="drop-cap text-slate-700 font-normal">
           大模型军备竞赛的聚光灯长期落在算法参数与算力集群的虚拟世界中。然而，当工业机器真正开进现实，整个行业正迎面撞上一堵无法绕开的高墙——<strong class="text-slate-950 font-semibold">物理电网与热力学耗散</strong>。在长达两小时的高密度闭门推演中，主讲人 WEST MAX 抛弃了硅谷与华尔街的宏大叙事，从最底层的变电站审批、骨干光纤路权、机柜功率密度到资本退出的闭环链条，彻底还原了算力工业与资产市场的残酷底层逻辑。
@@ -118,9 +119,6 @@
         </p>
 
         <h3 class="text-lg font-bold text-slate-900 pt-2 font-serif-sc">GPU 的三次历史大迁徙与矿企的先发预演</h3>
-        <p>
-          从技术演进史来看，GPU 经历了三次历史大迁徙：
-        </p>
         <ul class="list-disc list-inside space-y-2 text-slate-600 pl-2">
           <li><strong>第一阶段（图形渲染与游戏）：</strong>主要解决画质与浮点运算，功耗尚处于民用可承受区间。</li>
           <li><strong>第二阶段（比特币与以太坊挖矿）：</strong>第一次将分布式高密供电、变电站改造与大工业机房直接暴露在物理电网面前。加密货币矿场在客观上为如今高密度的 AI 算力中心完成了一轮供电体系与场地形态的“工业级带电预演”。</li>
@@ -191,7 +189,6 @@
           这是全场最具震撼力的一段产业推演。WEST MAX 建议全场“保持高度警惕”，并给出了严密论断——<strong class="text-slate-950 font-semibold">“我们就叫它泡沫吧”</strong>。
         </p>
 
-        <!-- 三维对比数据仪表盘 -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4 font-mono-code text-xs">
           <div class="p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
             <div class="text-slate-400 mb-1">投行模型线性外推</div>
@@ -308,10 +305,6 @@
           </h2>
         </div>
 
-        <p>
-          在研讨尾声，WEST MAX 结合一线实操揭示了更多隐秘细节：
-        </p>
-
         <ul class="space-y-3 text-xs text-slate-700 pl-1">
           <li class="p-3 bg-white rounded border border-slate-200">
             <strong>制造模组化缺乏永久壁垒：</strong>国内制造链条能把外壳、配电柜与液冷集装箱做到极致低价。但进入北美需经受长达 9 个月的严格认证。类比特斯拉的一体化压铸，两年内优势就会被全面抹平，代工厂无法构筑长期垄断。
@@ -357,12 +350,15 @@
 
     </div>
 
-    <!-- 底部导航与版权 -->
-    <footer class="mt-16 pt-6 border-t border-slate-200/80 text-xs font-mono-code text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-3">
-      <a href="./civilization-os.html" class="hover:text-blue-600 transition-colors flex items-center gap-1">
+    <!-- 底部导航与内部声明版权 -->
+    <footer class="mt-16 pt-6 border-t border-slate-200/80 text-xs font-mono-code text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <a href="./civilization-os.html" class="hover:text-blue-600 transition-colors flex items-center gap-1 text-slate-400">
         <span>← RETURN TO CWCL INDEX</span>
       </a>
-      <span>© 2026 PATRICK YANG. ALL RIGHTS RESERVED.</span>
+      <div class="text-center sm:text-right space-y-1">
+        <p class="text-amber-800 font-semibold">【内部保密】以上内容仅限 A99 俱乐部内部学习，禁止转发</p>
+        <p class="text-slate-400">© 2026 PATRICK YANG · CWCL SYSTEM. ALL RIGHTS RESERVED.</p>
+      </div>
     </footer>
 
   </article>
