@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>比特币挖矿转型 AI 数据中心：现象、案例与电力方案拆解 | CWCL AI9901</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,101 +16,89 @@
     }
     .font-serif-sc { font-family: 'Noto Serif SC', serif; }
     .font-mono-code { font-family: 'Fira Code', monospace; }
-    .drop-cap::first-letter {
-      font-family: 'Noto Serif SC', serif;
-      float: left;
-      font-size: 3.4rem;
-      line-height: 2.8rem;
-      padding-top: 4px;
-      padding-right: 12px;
-      font-weight: 700;
-      color: #0f172a;
-    }
     .callout-blue {
-      border-left: 3px solid #2563eb;
-      background: linear-gradient(to right, rgba(37, 99, 235, 0.04), transparent);
+      border-left: 4px solid #2563eb;
+      background: linear-gradient(to right, rgba(37, 99, 235, 0.05), transparent);
     }
     .callout-amber {
-      border-left: 3px solid #d97706;
-      background: linear-gradient(to right, rgba(217, 119, 6, 0.04), transparent);
+      border-left: 4px solid #d97706;
+      background: linear-gradient(to right, rgba(217, 119, 6, 0.05), transparent);
     }
   </style>
 </head>
 <body class="antialiased selection:bg-blue-100 selection:text-blue-900">
 
-  <!-- 顶部导航 -->
-  <nav class="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between text-xs font-mono-code">
+  <!-- 顶部导航：字号提升至 14px，手机端易读 -->
+  <nav class="border-b border-slate-200/80 bg-white/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-5 sm:px-6 h-14 flex items-center justify-between text-sm font-mono-code">
       <a href="./civilization-os.html" class="font-semibold tracking-wider text-slate-900 hover:text-blue-600 transition-colors flex items-center gap-2">
         <span>CWCL</span>
         <span class="text-slate-300">/</span>
-        <span class="text-slate-500 font-normal">SYSTEM</span>
+        <span class="text-slate-600 font-normal">SYSTEM</span>
       </a>
-      <div class="flex items-center gap-3 text-slate-400">
-        <span>OCT 2026</span>
-        <span class="w-1 h-1 rounded-full bg-slate-300"></span>
-        <span class="px-2 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200/70 font-medium">INTERNAL USE ONLY</span>
+      <div class="flex items-center gap-2 sm:gap-3 text-slate-500">
+        <span class="hidden sm:inline">OCT 2026</span>
+        <span class="px-2.5 py-1 rounded bg-amber-50 text-amber-800 border border-amber-200 font-semibold text-xs sm:text-sm">INTERNAL</span>
       </div>
     </div>
   </nav>
 
-  <!-- 文章主容器 -->
-  <article class="max-w-4xl mx-auto px-6 py-12 sm:py-16">
+  <!-- 文章主容器：移动端 padding 优化 -->
+  <article class="max-w-3xl mx-auto px-5 sm:px-8 py-10 sm:py-16">
 
     <!-- 头部文章元信息区 -->
-    <header class="mb-14 border-b border-slate-200/80 pb-10">
-      <div class="flex items-center gap-2.5 mb-5 font-mono-code text-xs">
-        <span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-medium border border-blue-200/60">DOC #AI9901</span>
+    <header class="mb-10 sm:mb-14 border-b border-slate-200 pb-8 sm:pb-10">
+      
+      <!-- 徽章标签 -->
+      <div class="flex flex-wrap items-center gap-2 mb-4 font-mono-code text-xs sm:text-sm">
+        <span class="px-2.5 py-1 rounded bg-blue-50 text-blue-700 font-bold border border-blue-200">DOC #AI9901</span>
         <span class="text-slate-300">·</span>
-        <span class="text-slate-500 uppercase tracking-wider">A99 Club Seminar Series</span>
+        <span class="text-slate-600 font-medium">A99 Club Seminar Series</span>
       </div>
       
-      <!-- 重新拟定的通俗精准标题 -->
-      <h1 class="font-serif-sc text-3xl sm:text-4xl lg:text-[2.6rem] font-bold tracking-tight text-slate-950 leading-[1.3] mb-4">
+      <!-- 大标题 -->
+      <h1 class="font-serif-sc text-2xl sm:text-4xl font-bold tracking-tight text-slate-950 leading-[1.35] mb-4">
         比特币挖矿转型 AI 数据中心：<br class="hidden sm:inline">现象、案例与电力方案拆解
       </h1>
       
-      <p class="text-slate-600 text-base sm:text-lg font-light leading-relaxed mb-6">
+      <!-- 副标题 -->
+      <p class="text-slate-600 text-base sm:text-lg font-normal leading-relaxed mb-6">
         A99 俱乐部闭门研讨纪要：还原真实算力供需、电网审批深渊、微观工程改造与百倍资本开支陷阱。
       </p>
 
-      <!-- 内部保密警告条 -->
-      <div class="mb-6 px-4 py-2.5 rounded-md bg-amber-50 border border-amber-200 text-amber-900 text-xs font-mono-code flex items-center gap-2">
-        <svg class="w-4 h-4 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+      <!-- 内部保密警告条：大字号醒目提示 -->
+      <div class="mb-6 p-4 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-sm sm:text-base font-medium flex items-start sm:items-center gap-2.5 leading-snug">
+        <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5 sm:mt-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
         <span><strong>【内部保密声明】</strong> 以上内容仅限 A99 俱乐部内部学习，禁止转发。</span>
       </div>
 
-      <!-- 会议原始背景元数据卡片 -->
-      <div class="p-4 rounded-lg bg-slate-50/80 border border-slate-200/70 text-xs font-mono-code text-slate-600 space-y-2">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <div class="flex items-center gap-2">
-            <span class="text-slate-900 font-semibold text-sm font-sans">整理记录：Patrick Yang</span>
-            <span class="text-slate-300">/</span>
-            <span class="text-slate-500">Observer &amp; Builder</span>
-          </div>
-          <span class="text-slate-400">2026年10月16日 周五 10:00-12:00</span>
+      <!-- 会议背景元信息卡片：字号放大至 14px，手机端不再眯眼 -->
+      <div class="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-700 space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-slate-200/80">
+          <div><span class="text-slate-500">整理记录：</span><strong class="text-slate-900 text-base font-sans">Patrick Yang</strong> (Observer &amp; Builder)</div>
+          <div class="text-slate-500 font-mono-code text-xs sm:text-sm">2026年10月16日 周五 10:00-12:00</div>
         </div>
-        <div class="pt-2 border-t border-slate-200/60 flex flex-wrap items-center gap-x-5 gap-y-1 text-slate-500">
-          <span>地点：<strong class="text-slate-700 font-sans">南素里 Semiahmoo 图书馆一楼会议室 (1815 152 St, Surrey)</strong></span>
-          <span>主讲人：<strong class="text-slate-800 font-sans">West Max</strong></span>
+        <div class="space-y-1.5 text-slate-600 leading-relaxed">
+          <div>📍 <span class="text-slate-500">地点：</span><strong class="text-slate-900">南素里 Semiahmoo 图书馆一楼会议室</strong> (1815 152 St, Surrey)</div>
+          <div>🎙️ <span class="text-slate-500">主讲人：</span><strong class="text-slate-900 text-base">West Max</strong></div>
         </div>
       </div>
     </header>
 
-    <!-- 正文内容区 -->
-    <div class="text-[1.0625rem] leading-[1.95] text-slate-700 space-y-14">
+    <!-- 正文内容区：字体设定为手机端舒适的 17px/18px，行高 1.8 -->
+    <div class="text-[1.0625rem] sm:text-lg leading-[1.85] text-slate-800 space-y-12">
 
       <section class="space-y-4">
-        <p class="drop-cap text-slate-700 font-normal">
+        <p class="text-slate-800 font-normal leading-relaxed">
           AI 大模型军备竞赛的聚光灯长期落在算法参数与算力集群上，但当机器真正落入物理世界，所有的瓶颈瞬间集中到了最原始的实体——<strong>电</strong>。在 A99 俱乐部长达两小时的深度讨论中，主讲人 West Max 剥离了资本市场的叙事泡沫，从变电站审批、并网排队、机柜液冷改造、再到真实算力利用率，剖析了比特币矿场向 AI 数据中心转型的真实路径与巨大深坑。
         </p>
       </section>
 
       <!-- 章节 01 -->
       <section class="space-y-5">
-        <div class="flex items-center gap-3 border-b border-slate-200/80 pb-2">
-          <span class="text-blue-600 font-mono-code text-lg font-bold">01.</span>
-          <h2 class="font-serif-sc text-2xl font-bold text-slate-950 tracking-tight">
+        <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+          <span class="text-blue-600 font-mono-code text-xl font-bold">01.</span>
+          <h2 class="font-serif-sc text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
             算力大迁徙：为什么 AI 必须找矿场借电？
           </h2>
         </div>
@@ -119,19 +107,21 @@
           主讲人 West Max 在开篇指出：AI 算力产业已经不再是单纯的芯片故事，而是彻底撞上了物理电网的硬天花板。
         </p>
 
-        <h3 class="text-lg font-bold text-slate-900 pt-2 font-serif-sc">GPU 的三次历史大迁徙</h3>
-        <ul class="list-disc list-inside space-y-2 text-slate-600 pl-2 text-sm">
+        <h3 class="text-lg sm:text-xl font-bold text-slate-900 pt-2 font-serif-sc">GPU 的三次历史大迁徙</h3>
+        <ul class="list-disc list-outside space-y-3 text-slate-700 pl-5">
           <li><strong>游戏阶段：</strong>以个人显卡图形渲染为主，民用普通电网完全可承载。</li>
           <li><strong>比特币/以太坊挖矿阶段：</strong>首次将高密用电、变电站改造与重工业机房直接暴露给电网，客观上为今天的 AI 数据中心完成了一轮供电体系与场地形态的“工业级带电预演”。</li>
           <li><strong>AI 大模型训练阶段：</strong>机柜功率密度暴增 5–10 倍，进入全天候高负荷运行，用电需求产生断层级暴涨。</li>
         </ul>
 
-        <div class="callout-blue p-4 rounded-r my-6 text-sm text-slate-700 space-y-1.5">
-          <div class="font-mono-code text-xs uppercase tracking-wider text-blue-700 font-semibold">现场冷酷事实 (Observation)</div>
-          <p class="italic">“台积电能按期出片、英伟达能按期交卡，但机器运抵现场根本没有并网电力可插！即便具备全球资源调度能力的企业家，也必须满世界搜寻现成的在线发电机组应急。”</p>
+        <div class="callout-blue p-5 rounded-r-xl my-6 text-slate-800 space-y-2">
+          <div class="font-mono-code text-xs sm:text-sm uppercase tracking-wider text-blue-700 font-bold">现场冷酷事实 (Observation)</div>
+          <p class="font-medium text-base sm:text-lg italic leading-relaxed text-slate-900">
+            “台积电能按期出片、英伟达能按期交卡，但机器运抵现场根本没有并网电力可插！即便具备全球资源调度能力的企业家，也必须满世界搜寻现成的在线发电机组应急。”
+          </p>
         </div>
 
-        <h3 class="text-lg font-bold text-slate-900 pt-2 font-serif-sc">传统机房并网死穴与矿企借道</h3>
+        <h3 class="text-lg sm:text-xl font-bold text-slate-900 pt-2 font-serif-sc">传统机房并网死穴与矿企借道</h3>
         <p>
           为什么算力巨头必须找矿企合作？因为从头审批新建数据中心并网的周期已经彻底失控。
         </p>
@@ -142,9 +132,9 @@
 
       <!-- 章节 02 -->
       <section class="space-y-5">
-        <div class="flex items-center gap-3 border-b border-slate-200/80 pb-2">
-          <span class="text-blue-600 font-mono-code text-lg font-bold">02.</span>
-          <h2 class="font-serif-sc text-2xl font-bold text-slate-950 tracking-tight">
+        <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+          <span class="text-blue-600 font-mono-code text-xl font-bold">02.</span>
+          <h2 class="font-serif-sc text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
             工程残酷真相：绝大多数偏远矿场根本转不成 AI
           </h2>
         </div>
@@ -154,23 +144,23 @@
         </p>
 
         <div class="space-y-4">
-          <div class="p-4 rounded-lg bg-white border border-slate-200 shadow-sm space-y-2">
-            <h4 class="font-bold text-slate-900 text-base font-sans">1. 光纤路权的地缘地狱（Fiber Routing &amp; Latency）</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
+          <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h4 class="font-bold text-slate-900 text-base sm:text-lg">1. 光纤路权的地缘地狱（Fiber Routing &amp; Latency）</h4>
+            <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
               比特币挖矿是异步运算，数据包只有几十 KB，一条星链（Starlink）或普通商用宽带即可维持运转；但 AI 跨节点大模型训练需要<strong>双路平行、低延迟、高冗余的电信骨干长途光纤</strong>。许多偏远极寒水电源头的矿场，距离干线光纤几十上百公里。在北美，铺设 10 公里光纤需要穿越原住民保留地、获得铁路局穿行路权（Right-of-Way）与市政繁琐审批，工期动辄数年，成本极高，直接判了偏远矿场死刑。
             </p>
           </div>
 
-          <div class="p-4 rounded-lg bg-white border border-slate-200 shadow-sm space-y-2">
-            <h4 class="font-bold text-slate-900 text-base font-sans">2. PUE 指标与严苛的环境法规（Environmental Constraints）</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
+          <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h4 class="font-bold text-slate-900 text-base sm:text-lg">2. PUE 指标与严苛的环境法规（Environmental Constraints）</h4>
+            <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
               传统矿场 PUE 往往高达 1.4–1.5，简易水帘风机吹风即可；但现代 AI 数据中心要求 PUE 达到 1.2 甚至更低，这意味着 25% 的能量纯粹在为散热和系统损耗买单。现场探讨过“把机房热水直接排入自然湖泊”或“零下 20 度纯靠冷空气自然冷却”等设想，但在严苛的生态环保法规下（温排水破坏生态平衡、结露腐蚀、灰尘颗粒过滤），实际工程中根本无法落地，依然必须斥巨资安装庞大的闭式板式换热器与闭式干冷塔。
             </p>
           </div>
 
-          <div class="p-4 rounded-lg bg-white border border-slate-200 shadow-sm space-y-2">
-            <h4 class="font-bold text-slate-900 text-base font-sans">3. Blackwell 机柜引发的工程报废危机（Floor &amp; Power Density）</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
+          <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+            <h4 class="font-bold text-slate-900 text-base sm:text-lg">3. Blackwell 机柜引发的工程报废危机（Floor &amp; Power Density）</h4>
+            <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
               过去按单机柜 10kW–20kW 设计的机房，Blackwell（B200/B300）架构一来，单机柜功耗直接冲上 100kW–120kW。单机柜满载自重超过 1.5 吨，很多老机房的地基承重根本不达标；母线排（Busway）、配电柜与一次侧管路全部需要推倒重建，刚盖到一半的机房被迫面临推翻重来的资产贬值风险。
             </p>
           </div>
@@ -179,9 +169,9 @@
 
       <!-- 章节 03 -->
       <section class="space-y-5">
-        <div class="flex items-center gap-3 border-b border-slate-200/80 pb-2">
-          <span class="text-blue-600 font-mono-code text-lg font-bold">03.</span>
-          <h2 class="font-serif-sc text-2xl font-bold text-slate-950 tracking-tight">
+        <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+          <span class="text-blue-600 font-mono-code text-xl font-bold">03.</span>
+          <h2 class="font-serif-sc text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
             West Max 的“泡沫”推演：工程优化对线性预测的降维打击
           </h2>
         </div>
@@ -190,41 +180,41 @@
           West Max 建议全场“保持高度警惕”，并给出了严密论断——<strong class="text-slate-950 font-semibold">“我们就叫它泡沫吧”</strong>。得出这一结论基于三个相互背离的客观事实：
         </p>
 
-        <!-- 三维对比数据仪表盘 -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4 font-mono-code text-xs">
-          <div class="p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
-            <div class="text-slate-400 mb-1">投行模型线性外推</div>
-            <div class="text-slate-900 font-bold text-base">缺几十个 GW</div>
-            <div class="text-[11px] text-slate-400 mt-1">按当前参数与耗电简单乘法</div>
+        <!-- 针对手机端重构的大字仪表盘卡片 -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-5">
+          <div class="p-4 sm:p-5 bg-white rounded-xl border border-slate-200 shadow-sm">
+            <div class="text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-wider">投行模型线性外推</div>
+            <div class="text-xl sm:text-2xl font-bold text-slate-950 my-1">缺几十个 GW</div>
+            <div class="text-xs sm:text-sm text-slate-500">按当前参数与耗电简单乘法</div>
           </div>
-          <div class="p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
-            <div class="text-slate-400 mb-1">实际设备真实运转</div>
-            <div class="text-slate-900 font-bold text-base">利用率仅 50%-60%</div>
-            <div class="text-[11px] text-slate-400 mt-1">大量点亮服务器处于空转</div>
+          <div class="p-4 sm:p-5 bg-white rounded-xl border border-slate-200 shadow-sm">
+            <div class="text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-wider">实际设备真实运转</div>
+            <div class="text-xl sm:text-2xl font-bold text-slate-950 my-1">利用率仅 50%-60%</div>
+            <div class="text-xs sm:text-sm text-slate-500">大量点亮服务器处于空转</div>
           </div>
-          <div class="p-4 bg-blue-50/50 rounded-lg border border-blue-200 shadow-sm">
-            <div class="text-blue-600 mb-1">终端调用单价崩塌</div>
-            <div class="text-blue-900 font-bold text-base">3年内暴跌 95%</div>
-            <div class="text-[11px] text-blue-600/70 mt-1">单位 Token 收益遭剧烈挤压</div>
+          <div class="p-4 sm:p-5 bg-blue-50/60 rounded-xl border border-blue-200 shadow-sm">
+            <div class="text-xs sm:text-sm font-semibold text-blue-700 uppercase tracking-wider">终端调用单价崩塌</div>
+            <div class="text-xl sm:text-2xl font-bold text-blue-900 my-1">3年内暴跌 95%</div>
+            <div class="text-xs sm:text-sm text-blue-700">单位 Token 收益遭剧烈挤压</div>
           </div>
         </div>
 
-        <div class="bg-slate-50 p-5 rounded-lg border-l-2 border-slate-400 my-6">
-          <p class="font-serif-sc text-slate-800 text-[1.05rem] leading-relaxed italic">
+        <div class="bg-slate-50 p-5 sm:p-6 rounded-xl border-l-4 border-slate-400 my-6">
+          <p class="font-serif-sc text-slate-900 text-lg sm:text-xl leading-relaxed italic">
             “如果你一上来先放沙子，把缝隙都填满了，大石头就放不进去了；但若先放最大的石头，再塞中石头、小石头，最后倒入沙子和水，同样的杯子能装下成倍的容量。”
           </p>
         </div>
 
-        <p class="text-sm text-slate-600 leading-relaxed">
+        <p class="text-slate-800 leading-relaxed">
           华尔街机构按简单乘法预测电荒，但工业界正在以<strong>非线性工程优化</strong>快速解决问题：算力正从高端昂贵的 GPU 向专用推理芯片（ASIC）分流；模型蒸馏、量化和缓存技术，让同样的硬件产出数倍于过去的 Token。下游初创公司在单 Token 价格暴跌 95% 的大环境下难以盈利，上游巨额 Capex 最终面临谁来买单的流动性断崖。
         </p>
       </section>
 
       <!-- 章节 04 -->
       <section class="space-y-5">
-        <div class="flex items-center gap-3 border-b border-slate-200/80 pb-2">
-          <span class="text-blue-600 font-mono-code text-lg font-bold">04.</span>
-          <h2 class="font-serif-sc text-2xl font-bold text-slate-950 tracking-tight">
+        <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+          <span class="text-blue-600 font-mono-code text-xl font-bold">04.</span>
+          <h2 class="font-serif-sc text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
             百倍投资强度与“末日之火”洗牌隐喻
           </h2>
         </div>
@@ -233,24 +223,25 @@
           West Max 为全场算了一笔资本开支账：
         </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4 font-mono-code text-xs">
-          <div class="p-4 bg-white rounded-lg border border-slate-200 flex flex-col justify-between">
-            <span class="text-slate-500 font-sans">比特币矿场建设 (1 MW)</span>
-            <div class="text-2xl font-bold text-slate-900 my-2">$40 万 - $50 万 美元</div>
-            <span class="text-slate-400">采购 S21 矿机 + 基础风冷机房</span>
+        <!-- 手机端单列展开的百倍对比栏 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <span class="text-slate-600 font-medium text-sm sm:text-base">比特币矿场建设 (1 MW)</span>
+            <div class="text-2xl sm:text-3xl font-bold text-slate-950 my-2">$40 万 - $50 万 美元</div>
+            <span class="text-slate-500 text-xs sm:text-sm">采购 S21 矿机 + 基础风冷机房</span>
           </div>
-          <div class="p-4 bg-blue-50/50 rounded-lg border border-blue-200 flex flex-col justify-between">
-            <span class="text-blue-700 font-sans">现代 AI 算力中心建设 (1 MW)</span>
-            <div class="text-2xl font-bold text-blue-950 my-2">$4000 万 - $4200 万 美元</div>
-            <span class="text-blue-600 font-semibold">资金吸纳强度相差近 100 倍！</span>
+          <div class="p-5 bg-blue-50/60 rounded-xl border border-blue-200 shadow-sm flex flex-col justify-between">
+            <span class="text-blue-800 font-medium text-sm sm:text-base">现代 AI 算力中心建设 (1 MW)</span>
+            <div class="text-2xl sm:text-3xl font-bold text-blue-950 my-2">$4000 万 - $4200 万 美元</div>
+            <span class="text-blue-700 font-semibold text-xs sm:text-sm">资金吸纳强度相差近 100 倍！</span>
           </div>
         </div>
 
-        <div class="callout-amber p-4 rounded-r my-6 text-sm text-slate-700 space-y-1.5">
-          <div class="font-mono-code text-xs uppercase tracking-wider text-amber-800 font-semibold">
+        <div class="callout-amber p-5 rounded-r-xl my-6 text-slate-800 space-y-2">
+          <div class="font-mono-code text-xs sm:text-sm uppercase tracking-wider text-amber-800 font-bold">
             现场讨论补充（Eric 抛出）：从大洪水到末日之火的洗牌隐喻
           </div>
-          <p class="leading-relaxed">
+          <p class="leading-relaxed text-base sm:text-lg">
             在探讨本次行业洗牌的烈度时，Eric 结合前一天的深入讨论，抛出了圣经中的典故：互联网当年的泡沫更像<strong>“大洪水”</strong>，水虽淹没大地，但留下了诺亚方舟与生灵，物理根基未毁，水退之后留下了 Google、Amazon 等超级巨头；而末日审判则是<strong>“用火烧光”</strong>——在烈火中一切都会化为灰烬，重造新天新地。Eric 的比喻引发全场警惕：AI 带来的是全社会供应链级别的烈火与海啸，缺乏根本壁垒的中间层企业将面临彻底的物理出清。
           </p>
         </div>
@@ -258,35 +249,35 @@
 
       <!-- 章节 05 -->
       <section class="space-y-5">
-        <div class="flex items-center gap-3 border-b border-slate-200/80 pb-2">
-          <span class="text-blue-600 font-mono-code text-lg font-bold">05.</span>
-          <h2 class="font-serif-sc text-2xl font-bold text-slate-950 tracking-tight">
+        <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+          <span class="text-blue-600 font-mono-code text-xl font-bold">05.</span>
+          <h2 class="font-serif-sc text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
             核心交锋：AI 退潮后，比特币能否接棒？
           </h2>
         </div>
 
-        <p class="text-sm text-slate-600">
+        <p class="text-slate-700">
           现场讨论中最为激烈的思维对抗，集中在“AI 泡沫破裂后，资金是否会回流固定 2100 万枚供应上限的比特币并推升币价”。
         </p>
 
-        <div class="space-y-3 my-4">
-          <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-xs">
-            <strong class="text-slate-900 font-sans text-sm block">1. 时序与出清前置条件</strong>
-            <p class="text-slate-600 leading-relaxed">
+        <div class="space-y-3.5 my-4">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-950 font-sans text-base sm:text-lg block">1. 时序与出清前置条件</strong>
+            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
               现场共识明确指出：资产轮动绝不可能在泡沫刚开裂的第一时间平滑发生。“必须等 AI 破灭出清了，才可能看到比特币涨，不是现在”。初期的跨资产强制去杠杆（Deleveraging）必然引发全市场踩踏，必须等待系统性清算完毕。
             </p>
           </div>
 
-          <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-xs">
-            <strong class="text-slate-900 font-sans text-sm block">2. West Max 的定锚哲学：成本 vs 情绪</strong>
-            <p class="text-slate-600 leading-relaxed">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-950 font-sans text-base sm:text-lg block">2. West Max 的定锚哲学：成本 vs 情绪</strong>
+            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
               West Max 纠正了粗浅的成本加价模型：资产处于牛市高位时，价格完全由投机情绪与法币流动性驱动，成本无法形成压制；只有当市价砸破预期、逼近关机电费时，固定与可变成本才显现出防守的“安全锚”价值。
             </p>
           </div>
 
-          <div class="p-4 bg-white rounded-lg border border-slate-200 space-y-1 text-xs">
-            <strong class="text-slate-900 font-sans text-sm block">3. 流动性本质差异</strong>
-            <p class="text-slate-600 leading-relaxed">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-950 font-sans text-base sm:text-lg block">3. 流动性本质差异</strong>
+            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
               BTC 拥有全球每日数百亿美元的现货与衍生品深厚流动性，挖出来就能卖；而 AI 算力租赁却受困于下游价格崩塌与长约违约的账期焦虑。
             </p>
           </div>
@@ -295,51 +286,60 @@
 
       <!-- 章节 06 -->
       <section class="space-y-5">
-        <div class="flex items-center gap-3 border-b border-slate-200/80 pb-2">
-          <span class="text-blue-600 font-mono-code text-lg font-bold">06.</span>
-          <h2 class="font-serif-sc text-2xl font-bold text-slate-950 tracking-tight">
+        <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+          <span class="text-blue-600 font-mono-code text-xl font-bold">06.</span>
+          <h2 class="font-serif-sc text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
             制造出海、算力转租真相与资本退出机制
           </h2>
         </div>
 
-        <ul class="space-y-3 text-xs text-slate-700 pl-1">
-          <li class="p-3 bg-white rounded border border-slate-200">
-            <strong>制造模组化缺乏永久壁垒：</strong>国内制造链条能把外壳、配电柜与液冷集装箱做到极致低价。但进入北美需经受长达 9 个月的严格认证。类比特斯拉的一体化压铸，两年内优势就会被全面抹平，代工厂无法构筑长期垄断。
-          </li>
-          <li class="p-3 bg-white rounded border border-slate-200">
-            <strong>真实利用率仅五六成；马斯克算力 80% 靠转租：</strong>所谓全球一卡难求存在空转假象。连马斯克体系内的数据中心，为了平摊巨额固定成本，也有高达约 80% 的算力被直接转租给外部机构回血。
-          </li>
-          <li class="p-3 bg-white rounded border border-slate-200">
-            <strong>资本通道制胜：</strong>商业竞争的核心在于资本闭环。拥有确定性大厂长期订单并打通公开市场上市/并购退出通道的企业，抗风险能力远超单一的硬件倒卖或投机运维。
-          </li>
-        </ul>
+        <div class="space-y-3.5 text-slate-700">
+          <div class="p-5 bg-white rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-950 text-base sm:text-lg block">制造模组化缺乏永久壁垒：</strong>
+            <p class="text-sm sm:text-base leading-relaxed">
+              国内制造链条能把外壳、配电柜与液冷集装箱做到极致低价。但进入北美需经受长达 9 个月的严格认证。类比特斯拉的一体化压铸，两年内优势就会被全面抹平，代工厂无法构筑长期垄断。
+            </p>
+          </div>
+          <div class="p-5 bg-white rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-950 text-base sm:text-lg block">真实利用率仅五六成；马斯克算力 80% 靠转租：</strong>
+            <p class="text-sm sm:text-base leading-relaxed">
+              所谓全球一卡难求存在空转假象。连马斯克体系内的数据中心，为了平摊巨额固定成本，也有高达约 80% 的算力被直接转租给外部机构回血。
+            </p>
+          </div>
+          <div class="p-5 bg-white rounded-xl border border-slate-200 space-y-1.5">
+            <strong class="text-slate-950 text-base sm:text-lg block">资本通道制胜：</strong>
+            <p class="text-sm sm:text-base leading-relaxed">
+              商业竞争的核心在于资本闭环。拥有确定性大厂长期订单并打通公开市场上市/并购退出通道的企业，抗风险能力远超单一的硬件倒卖或投机运维。
+            </p>
+          </div>
+        </div>
       </section>
 
-      <!-- 价值评析与决策指引 -->
-      <section class="mt-14 bg-[#0f172a] text-slate-200 p-8 sm:p-10 rounded-2xl space-y-6">
+      <!-- 价值评析与决策指引：深色卡片升级大字号 -->
+      <section class="mt-14 bg-[#0f172a] text-slate-200 p-6 sm:p-10 rounded-2xl space-y-6">
         <div>
-          <span class="text-blue-400 font-mono-code text-xs tracking-wider uppercase">CRITIQUE &amp; GUIDANCE</span>
+          <span class="text-blue-400 font-mono-code text-xs sm:text-sm tracking-wider uppercase">CRITIQUE &amp; GUIDANCE</span>
           <h3 class="font-serif-sc text-xl sm:text-2xl font-bold text-white mt-1">价值评析与决策指引</h3>
         </div>
 
-        <div class="space-y-5 text-sm text-slate-300 leading-relaxed font-light">
-          <div class="border-b border-slate-800 pb-4">
-            <h4 class="font-medium text-white text-[0.95rem] mb-1 font-sans">1. 穿透虚拟神话，确立物理实在论</h4>
-            <p class="text-slate-400 text-xs leading-relaxed">讨论的最大价值，在于彻底剥离了大模型脱离现实的虚幻叙事，把算力重新锚定在变电站负荷、PUE、散热温差等物理定律上。理解 AI 的未来，必须先理解电网与能源。</p>
+        <div class="space-y-6 text-slate-300 leading-relaxed font-light">
+          <div class="border-b border-slate-800 pb-5">
+            <h4 class="font-medium text-white text-base sm:text-lg mb-1.5 font-sans">1. 穿透虚拟神话，确立物理实在论</h4>
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed">讨论的最大价值，在于彻底剥离了大模型脱离现实的虚幻叙事，把算力重新锚定在变电站负荷、PUE、散热温差等物理定律上。理解 AI 的未来，必须先理解电网与能源。</p>
           </div>
 
-          <div class="border-b border-slate-800 pb-4">
-            <h4 class="font-medium text-white text-[0.95rem] mb-1 font-sans">2. 告别粗放堆算力，走向“工程精细化”</h4>
-            <p class="text-slate-400 text-xs leading-relaxed">单 Token 成本降 95% 昭示着粗放 API 时代的终结。未来的技术超额收益不属于无脑租赁高端 GPU 的二道贩子，而属于深耕<strong>端侧轻量化、知识蒸馏、推测解码与混合专家调度</strong>的工程极客。</p>
+          <div class="border-b border-slate-800 pb-5">
+            <h4 class="font-medium text-white text-base sm:text-lg mb-1.5 font-sans">2. 告别粗放堆算力，走向“工程精细化”</h4>
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed">单 Token 成本降 95% 昭示着粗放 API 时代的终结。未来的技术超额收益不属于无脑租赁高端 GPU 的二道贩子，而属于深耕<strong>端侧轻量化、知识蒸馏、推测解码与混合专家调度</strong>的工程极客。</p>
           </div>
 
           <div>
-            <h4 class="font-medium text-white text-[0.95rem] mb-1 font-sans">3. 资产风控：牢牢抓住不可复制的稀缺节点</h4>
-            <p class="text-slate-400 text-xs leading-relaxed">机房与芯片会迅速折旧，但<strong>已经获批的高负荷电网并网权（Interconnection）、靠近骨干网的清洁电力指标、以及具备闭环造血能力的真实商业流</strong>，才是能够穿越技术洗牌烈火的不可再生资产。</p>
+            <h4 class="font-medium text-white text-base sm:text-lg mb-1.5 font-sans">3. 资产风控：牢牢抓住不可复制的稀缺节点</h4>
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed">机房与芯片会迅速折旧，但<strong>已经获批的高负荷电网并网权（Interconnection）、靠近骨干网的清洁电力指标、以及具备闭环造血能力的真实商业流</strong>，才是能够穿越技术洗牌烈火的不可再生资产。</p>
           </div>
         </div>
 
-        <div class="pt-4 border-t border-slate-800 flex flex-wrap justify-between items-center gap-2 text-xs font-mono-code text-slate-500">
+        <div class="pt-4 border-t border-slate-800 flex flex-wrap justify-between items-center gap-2 text-xs sm:text-sm font-mono-code text-slate-500">
           <span>A99 CLUB // SEMIAHMOO LIBRARY 1F</span>
           <span>WRITTEN BY PATRICK YANG</span>
         </div>
@@ -347,14 +347,14 @@
 
     </div>
 
-    <!-- 底部导航与内部声明版权 -->
-    <footer class="mt-16 pt-6 border-t border-slate-200/80 text-xs font-mono-code text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-3">
-      <a href="./civilization-os.html" class="hover:text-blue-600 transition-colors flex items-center gap-1 text-slate-400">
+    <!-- 底部导航与内部声明版权：大字展示 -->
+    <footer class="mt-16 pt-8 border-t border-slate-200 text-sm font-mono-code text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <a href="./civilization-os.html" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 text-slate-600 font-medium">
         <span>← RETURN TO CWCL INDEX</span>
       </a>
       <div class="text-center sm:text-right space-y-1">
-        <p class="text-amber-800 font-semibold">【内部保密】以上内容仅限 A99 俱乐部内部学习，禁止转发</p>
-        <p class="text-slate-400">© 2026 PATRICK YANG · CWCL SYSTEM. ALL RIGHTS RESERVED.</p>
+        <p class="text-amber-800 font-semibold text-sm">【内部保密】以上内容仅限 A99 俱乐部内部学习，禁止转发</p>
+        <p class="text-slate-400 text-xs">© 2026 PATRICK YANG · CWCL SYSTEM. ALL RIGHTS RESERVED.</p>
       </div>
     </footer>
 
