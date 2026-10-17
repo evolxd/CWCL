@@ -34,6 +34,12 @@
       flex-shrink: 0; transition: background 0.2s, transform 0.1s;
     }
     .play-btn:active { transform: scale(0.95); background: #766046; }
+    .speed-btn {
+      padding: 4px 8px; border-radius: 6px; background: #e6decb;
+      color: #5a5043; border: 1px solid #d4c7b2; cursor: pointer;
+      font-size: 12px; font-weight: 700; flex-shrink: 0; transition: all 0.15s;
+    }
+    .speed-btn:active { background: #8c7355; color: #ffffff; }
     .audio-info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
     .audio-title-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 600; color: #5a5043; }
     .audio-time { font-family: monospace; font-size: 12px; color: #8c7355; font-weight: 500; }
@@ -88,6 +94,7 @@
           <div class="progress-fill" id="progressFill"></div>
         </div>
       </div>
+      <button class="speed-btn" id="speedBtn" title="切换播放速度">1.0x</button>
     </div>
     <audio id="articleAudio" src="podcast.mp3" preload="metadata"></audio>
   </div>
@@ -178,6 +185,7 @@
 <script>
   (function() {
     const playBtn = document.getElementById('playBtn');
+    const speedBtn = document.getElementById('speedBtn');
     const audio = document.getElementById('articleAudio');
     const progressFill = document.getElementById('progressFill');
     const progressTrack = document.getElementById('progressTrack');
@@ -190,12 +198,27 @@
     let ttsTimer = null;
     let ttsProgress = 0;
     
+    // 倍速列表：1.0 -> 1.2 -> 1.5 -> 1.8 循环
+    const speeds = [1.0, 1.2, 1.5, 1.8];
+    let currentSpeedIdx = 0;
+
     function formatTime(seconds) {
       if (isNaN(seconds)) return "00:00";
       const m = Math.floor(seconds / 60);
       const s = Math.floor(seconds % 60);
       return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
     }
+
+    // 倍速按钮点击切换
+    speedBtn.addEventListener('click', function() {
+      currentSpeedIdx = (currentSpeedIdx + 1) % speeds.length;
+      const spd = speeds[currentSpeedIdx];
+      speedBtn.textContent = spd.toFixed(1) + "x";
+      audio.playbackRate = spd;
+      if (useTTS && ttsUtterance) {
+        ttsUtterance.rate = spd;
+      }
+    });
 
     audio.addEventListener('error', function() { useTTS = true; });
 
@@ -226,9 +249,9 @@
       const textToRead = articleBody.innerText.replace(/\s+/g, ' ');
       ttsUtterance = new SpeechSynthesisUtterance(textToRead);
       ttsUtterance.lang = 'zh-CN';
-      ttsUtterance.rate = 1.05;
+      ttsUtterance.rate = speeds[currentSpeedIdx];
       
-      const estTotalSec = Math.floor(textToRead.length / 5);
+      const estTotalSec = Math.floor((textToRead.length / 5) / speeds[currentSpeedIdx]);
       ttsProgress = 0;
 
       ttsUtterance.onstart = function() {
