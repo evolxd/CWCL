@@ -96,7 +96,7 @@
           <div class="progress-fill" id="progressFill"></div>
         </div>
       </div>
-      <button class="speed-btn" id="speedBtn" title="切换播放速度">1.0x</button>
+      <button class="speed-btn" id="speedBtn" onclick="togglePlaybackRate(this)" title="点击切换播放速度">1.0x</button>
     </div>
     <audio id="articleAudio" src="podcast.mp3" preload="metadata"></audio>
   </div>
@@ -263,5 +263,28 @@
     });
   })();
 </script>
+
+<script>
+  // 独立全局倍速切换函数
+  const playbackRates = [1.0, 1.2, 1.5, 1.8];
+  let currentRateIndex = 0;
+
+  function togglePlaybackRate(btn) {
+    const audio = document.getElementById('articleAudio');
+    if (!audio) return;
+    
+    currentRateIndex = (currentRateIndex + 1) % playbackRates.length;
+    const newRate = playbackRates[currentRateIndex];
+    
+    // 强制设置音频倍速
+    audio.playbackRate = newRate;
+    audio.defaultPlaybackRate = newRate;
+    
+    // 更新按钮文字
+    btn.textContent = newRate.toFixed(1) + 'x';
+    console.log('当前播放倍速已切换为:', newRate);
+  }
+</script>
+
 </body>
 </html>
