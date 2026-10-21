@@ -305,5 +305,48 @@
     });
   })();
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.querySelector('audio');
+    var playBtn = document.querySelector('.play-circle-btn') || document.querySelector('.play-btn') || document.querySelector('#mainPlayBtn') || document.querySelector('#playBtn');
+
+    if (!audio) {
+      console.error('未找到 audio 标签');
+      return;
+    }
+
+    if (playBtn) {
+      // 移除可能存在的阻碍事件，重新绑定纯净点击
+      playBtn.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (audio.paused) {
+          var playPromise = audio.play();
+          if (playPromise !== undefined) {
+            playPromise.then(function() {
+              playBtn.textContent = '❚❚';
+            }).catch(function(err) {
+              console.error('播放被浏览器阻止或失败:', err);
+              // 如果是相对路径被策略限制，尝试直接指定
+              audio.src = 'podcast.mp3';
+              audio.play();
+              playBtn.textContent = '❚❚';
+            });
+          }
+        } else {
+          audio.pause();
+          playBtn.textContent = '▶';
+        }
+      };
+    }
+
+    audio.onended = function() {
+      if (playBtn) playBtn.textContent = '▶';
+    };
+  });
+</script>
+
 </body>
 </html>
