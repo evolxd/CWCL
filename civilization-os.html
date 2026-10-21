@@ -96,7 +96,7 @@
       </div>
       <button class="speed-btn" id="speedBtn" title="切换播放速度">1.0x</button>
     </div>
-    <audio id="articleAudio" src="podcast.mp3" preload="metadata"></audio>
+    <audio id="articleAudio" src="podcast.mp3" preload="metadata"></audio></audio>
   </div>
 
   <div class="intro-summary">
@@ -179,173 +179,100 @@
   </div>
 </div>
 
+
+
+
+
+
 <script>
-  (function() {
-    const playBtn = document.getElementById('playBtn');
-    const speedBtn = document.getElementById('speedBtn');
-    const audio = document.getElementById('articleAudio');
-    const progressFill = document.getElementById('progressFill');
-    const progressTrack = document.getElementById('progressTrack');
-    const audioTime = document.getElementById('audioTime');
-    const articleBody = document.getElementById('articleBody');
-    
-    let isPlaying = false;
-    let useTTS = false;
-    let ttsUtterance = null;
-    let ttsTimer = null;
-    let ttsProgress = 0;
-    
-    const speeds = [1.0, 1.2, 1.5, 1.8];
-    let currentSpeedIdx = 0;
+(function() {
+  var audio = document.getElementById('articleAudio') || document.querySelector('audio');
+  var playBtn = document.querySelector('.play-btn') || document.querySelector('.play-circle-btn') || document.getElementById('playBtn') || document.querySelector('button[aria-label*="播"]') || document.querySelector('.audio-player-bar button:first-child');
+  var speedBtn = document.querySelector('.speed-btn') || document.querySelector('#speedBtn') || document.querySelector('.audio-player-bar button:last-child');
+  var timeDisplay = document.querySelector('.audio-time') || document.querySelector('.time-digits') || document.querySelector('#audioTime');
+  var progressFill = document.querySelector('.progress-fill') || document.querySelector('.track-filled');
+  var progressTrack = document.querySelector('.progress-track') || document.querySelector('.track-wrapper');
 
-    function formatTime(seconds) {
-      if (isNaN(seconds)) return "00:00";
-      const m = Math.floor(seconds / 60);
-      const s = Math.floor(seconds % 60);
-      return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
-    }
+  if (!audio) {
+    console.error('未找到 audio 元素');
+    return;
+  }
 
-    speedBtn.addEventListener('click', function() {
-      currentSpeedIdx = (currentSpeedIdx + 1) % speeds.length;
-      const spd = speeds[currentSpeedIdx];
-      speedBtn.textContent = spd.toFixed(1) + "x";
-      audio.playbackRate = spd;
-      if (useTTS && ttsUtterance) {
-        ttsUtterance.rate = spd;
-      }
-    });
+  // 格式化时间
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return "00:00";
+    var m = Math.floor(s / 60);
+    var sec = Math.floor(s % 60);
+    return (m < 10 ? "0" + m : m) + ":" + (sec < 10 ? "0" + sec : sec);
+  }
 
-    audio.addEventListener('error', function() { useTTS = true; });
-
-    audio.addEventListener('loadedmetadata', function() {
-      audioTime.textContent = "00:00 / " + formatTime(audio.duration);
-    });
-
-    audio.addEventListener('timeupdate', function() {
-      if (!useTTS && audio.duration) {
-        const pct = (audio.currentTime / audio.duration)  100;
-        progressFill.style.width = pct + "%";
-        audioTime.textContent = formatTime(audio.currentTime) + " / " + formatTime(audio.duration);
-      }
-    });
-
-    audio.addEventListener('ended', function() {
-      isPlaying = false;
-      playBtn.textContent = "▶";
-      progressFill.style.width = "0%";
-    });
-
-    function startTTS() {
-      if (!('speechSynthesis' in window)) {
-        alert("浏览器未启用语音合成，请确认已放入 podcast.mp3 音频文件。");
-        return;
-      }
-      window.speechSynthesis.cancel();
-      const textToRead = articleBody.innerText.replace(/\s+/g, ' ');
-      ttsUtterance = new SpeechSynthesisUtterance(textToRead);
-      ttsUtterance.lang = 'zh-CN';
-      ttsUtterance.rate = speeds[currentSpeedIdx];
-      
-      const estTotalSec = Math.floor((textToRead.length / 5) / speeds[currentSpeedIdx]);
-      ttsProgress = 0;
-
-      ttsUtterance.onstart = function() {
-        isPlaying = true;
-        playBtn.textContent = "❚❚";
-        ttsTimer = setInterval(() => {
-          ttsProgress++;
-          const pct = Math.min(100, (ttsProgress / estTotalSec)  100);
-          progressFill.style.width = pct + "%";
-          audioTime.textContent = formatTime(ttsProgress) + " / " + formatTime(estTotalSec);
-        }, 1000);
-      };
-
-      ttsUtterance.onend = function() {
-        isPlaying = false;
-        playBtn.textContent = "▶";
-        clearInterval(ttsTimer);
-        progressFill.style.width = "0%";
-        audioTime.textContent = "00:00 / " + formatTime(estTotalSec);
-      };
-
-      window.speechSynthesis.speak(ttsUtterance);
-    }
-
-    playBtn.addEventListener('click', function() {
-      if (!isPlaying) {
-        if (!useTTS) {
-          audio.play().then(() => {
-            isPlaying = true;
-            playBtn.textContent = "❚❚";
-          }).catch(() => {
-            useTTS = true;
-            startTTS();
-          });
-        } else {
-          startTTS();
-        }
+  // 1. 播放与暂停绑定
+  if (playBtn) {
+    playBtn.onclick = function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (audio.paused) {
+        audio.play().then(function() {
+          playBtn.innerHTML = '❚❚';
+        }).catch(function(err) {
+          console.warn('播放重试中:', err);
+          audio.src = 'podcast.mp3';
+          audio.play();
+          playBtn.innerHTML = '❚❚';
+        });
       } else {
-        if (!useTTS) {
-          audio.pause();
-        } else {
-          window.speechSynthesis.pause();
-          clearInterval(ttsTimer);
-        }
-        isPlaying = false;
-        playBtn.textContent = "▶";
+        audio.pause();
+        playBtn.innerHTML = '▶';
       }
-    });
-
-    progressTrack.addEventListener('click', function(e) {
-      if (!useTTS && audio.duration) {
-        const rect = progressTrack.getBoundingClientRect();
-        const pos = (e.clientX - rect.left) / rect.width;
-        audio.currentTime = pos  audio.duration;
-      }
-    });
-  })();
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var audio = document.querySelector('audio');
-    var playBtn = document.querySelector('.play-circle-btn') || document.querySelector('.play-btn') || document.querySelector('#mainPlayBtn') || document.querySelector('#playBtn');
-
-    if (!audio) {
-      console.error('未找到 audio 标签');
-      return;
-    }
-
-    if (playBtn) {
-      // 移除可能存在的阻碍事件，重新绑定纯净点击
-      playBtn.onclick = function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        if (audio.paused) {
-          var playPromise = audio.play();
-          if (playPromise !== undefined) {
-            playPromise.then(function() {
-              playBtn.textContent = '❚❚';
-            }).catch(function(err) {
-              console.error('播放被浏览器阻止或失败:', err);
-              // 如果是相对路径被策略限制，尝试直接指定
-              audio.src = 'podcast.mp3';
-              audio.play();
-              playBtn.textContent = '❚❚';
-            });
-          }
-        } else {
-          audio.pause();
-          playBtn.textContent = '▶';
-        }
-      };
-    }
-
-    audio.onended = function() {
-      if (playBtn) playBtn.textContent = '▶';
     };
+  }
+
+  // 2. 倍速切换：1.0x -> 1.2x -> 1.5x -> 1.8x
+  var rates = [1.0, 1.2, 1.5, 1.8];
+  var currentRateIdx = 0;
+  if (speedBtn) {
+    speedBtn.onclick = function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      currentRateIdx = (currentRateIdx + 1) % rates.length;
+      var spd = rates[currentRateIdx];
+      audio.playbackRate = spd;
+      audio.defaultPlaybackRate = spd;
+      speedBtn.innerText = spd.toFixed(1) + 'x';
+    };
+  }
+
+  // 3. 进度条与时间更新
+  audio.addEventListener('loadedmetadata', function() {
+    if (timeDisplay && audio.duration) {
+      timeDisplay.innerText = "00:00 / " + fmt(audio.duration);
+    }
   });
+
+  audio.addEventListener('timeupdate', function() {
+    if (audio.duration) {
+      var pct = (audio.currentTime / audio.duration) * 100;
+      if (progressFill) progressFill.style.width = pct + "%";
+      if (timeDisplay) timeDisplay.innerText = fmt(audio.currentTime) + " / " + fmt(audio.duration);
+    }
+  });
+
+  audio.addEventListener('ended', function() {
+    if (playBtn) playBtn.innerHTML = '▶';
+    if (progressFill) progressFill.style.width = '0%';
+  });
+
+  // 4. 点击进度条跳转
+  if (progressTrack) {
+    progressTrack.onclick = function(e) {
+      if (audio.duration) {
+        var rect = progressTrack.getBoundingClientRect();
+        var pos = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        audio.currentTime = pos * audio.duration;
+      }
+    };
+  }
+})();
 </script>
 
 </body>
